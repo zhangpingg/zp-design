@@ -2,7 +2,6 @@ import React, { FC, memo } from 'react';
 import { Button } from 'antd';
 import type { ButtonProps } from 'antd/es/button';
 import _ from 'lodash';
-import 'antd/dist/antd.css';
 
 interface IProps extends ButtonProps {
   time?: number;

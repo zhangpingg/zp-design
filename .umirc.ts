@@ -1,4 +1,6 @@
 import { defineConfig } from 'dumi';
+import LessPluginFunctions from 'less-plugin-functions';
+import path from 'path';
 
 export default defineConfig({
   title: 'zp-component-library',
