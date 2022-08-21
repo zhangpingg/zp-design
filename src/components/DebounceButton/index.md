@@ -18,19 +18,18 @@ import { DebounceButton } from 'zp-component-library';
 
 const Demo = () => {
   const [num, setNum] = useState(0);
-  const [loading, setLoading] = useState(false);
 
   const fn1 = useCallback(() => {
     setNum((prev) => prev + 1);
   }, []);
 
   return (
-    <div>
+    <>
       <p>{num}</p>
       <DebounceButton type="primary" onClick={fn1}>
         防抖按钮
       </DebounceButton>
-    </div>
+    </>
   );
 };
 export default Demo;
