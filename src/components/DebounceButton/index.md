@@ -38,3 +38,7 @@ export default Demo;
 ## 模拟调用后台接口
 
 <code src='./DemoInterface'></code>
+
+## `API`
+
+<API src="./api/DebounceButtonProps.tsx" hideTitle></API>
