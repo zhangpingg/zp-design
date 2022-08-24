@@ -1,7 +1,7 @@
 ---
 group:
   title: DebounceButton 防抖按钮
-  path: /components/DebounceButton
+  path: /components
 ---
 
 # DebounceButton 防抖按钮
