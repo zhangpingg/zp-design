@@ -1,6 +1,6 @@
 ---
 group:
-  title: useDom 监听DOM改变
+  title: useDom 监听 DOM 改变
   path: /hooks
 ---
 
