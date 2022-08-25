@@ -1,7 +1,7 @@
 // dom 大小改变时的回调，返回当前元素本身
-import { useEffect } from 'react';
+import { useEffect, MutableRefObject } from 'react';
 
-const useDom = (dom, cb) => {
+const useDom = (dom: MutableRefObject<any>, cb: (dom: Element) => void) => {
   const obsever = new ResizeObserver((entries) => {
     for (const entry of entries) {
       cb && cb(entry.target);
