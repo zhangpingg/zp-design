@@ -1,6 +1,8 @@
 ---
-group:
+nav:
   title: DebounceButton 防抖按钮
+group:
+  title: 组件
   path: /components
 ---
 
