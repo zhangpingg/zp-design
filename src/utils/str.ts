@@ -1,5 +1,5 @@
 /**
- * @description 计算字符串在元素中的宽度，使用canvas进行计算，如果不支持canvas，直接返回text.length*字体大小
+ * @description 计算字符串在元素中的宽度（使用canvas进行计算，如果不支持canvas，直接返回text.length*字体大小）
  * @param text 需要测量的文本
  * @param font 字体大小,需要传px的字符串，默认为12px
  * @returns 字符串应该的宽度
