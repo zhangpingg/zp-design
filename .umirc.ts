@@ -22,7 +22,7 @@ export default defineConfig({
     // 重新添加 less-loader
     const options = {
       lessOptions: {
-        modifyVars: { '@ant-prefix': 'zp-ant', '@font-size-base': '12px' },
+        modifyVars: { '@ant-prefix': 'ant', '@font-size-base': '12px' },
         javascriptEnabled: true,
         plugins: [new LessPluginFunctions({ alwaysOverride: true })],
       },
@@ -37,22 +37,22 @@ export default defineConfig({
       .options({ ...options });
 
     // 添加 style-resources-loader 将文件注入到每个less文件的后面
-    // const resourceOptions = {
-    //   patterns: [
-    //     path.resolve(__dirname, './src/styles/less-functions-overrides.less'),
-    //     path.resolve(__dirname, './src/styles/antd-vars-patch.less'),
-    //     path.resolve(__dirname, './src/styles/dumi-common.less'),
-    //   ],
-    //   injector: 'append',
-    // };
+    const resourceOptions = {
+      patterns: [
+        path.resolve(__dirname, './src/styles/less-functions-overrides.less'),
+        path.resolve(__dirname, './src/styles/antd-vars-patch.less'),
+        path.resolve(__dirname, './src/styles/dumi-common.less'),
+      ],
+      injector: 'append',
+    };
 
-    // cssModule
-    //   .use('style-resources-loader')
-    //   .loader('style-resources-loader')
-    //   .options({ ...resourceOptions });
-    // css
-    //   .use('style-resources-loader')
-    //   .loader('style-resources-loader')
-    //   .options({ ...resourceOptions });
+    cssModule
+      .use('style-resources-loader')
+      .loader('style-resources-loader')
+      .options({ ...resourceOptions });
+    css
+      .use('style-resources-loader')
+      .loader('style-resources-loader')
+      .options({ ...resourceOptions });
   },
 });

@@ -19,7 +19,7 @@ export default {
   lessInRollupMode: {
     javascriptEnabled: true,
     modifyVars: {
-      'ant-prefix': 'zp-ant',
+      'ant-prefix': 'ant',
       'font-size-base': '12px',
       hack: `true; @import (reference) "${path.resolve(
         'src/styles/override.less',

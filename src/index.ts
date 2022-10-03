@@ -1,5 +1,7 @@
 import 'antd/dist/antd.css';
 
-export { default as ZpConfigProvider } from './components/ZpConfigProvider';
-export { default as DebounceButton } from './components/DebounceButton';
-export { default as useDomSizeChange } from './hooks/useDomSizeChange';
+// 导出组件
+export * from './components';
+
+// 导出hooks
+export * from './hooks';

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { DebounceButton } from 'zp-component-library';
+import { ZpDebounceButton } from 'zp-component-library';
 
 const DemoInterface = () => {
   const [data, setDate] = useState<any>();
@@ -24,9 +24,9 @@ const DemoInterface = () => {
   return (
     <div>
       <p>结果：{data}</p>
-      <DebounceButton type="primary" loading={loading} time={1000} onClick={fn1}>
+      <ZpDebounceButton type="primary" loading={loading} time={1000} onClick={fn1}>
         防抖按钮
-      </DebounceButton>
+      </ZpDebounceButton>
     </div>
   );
 };
