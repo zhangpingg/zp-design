@@ -1,10 +1,10 @@
 ---
 group:
-  title: useDom 监听 DOM 改变
+  title: useDomSizeChange
   path: /hooks
 ---
 
-# useDom 监听 DOM 改变
+# useDomSizeChange
 
 ## 基本介绍
 
@@ -15,7 +15,7 @@ dom 大小改变时的回调，返回当前元素本身
 ```tsx
 import React, { useState, useRef } from 'react';
 import { Button } from 'antd';
-import { useDom } from 'zp-component-library';
+import { useDomSizeChange } from 'zp-component-library';
 
 const Demo1 = () => {
   const [visible, setVisible] = useState(true);
@@ -23,7 +23,7 @@ const Demo1 = () => {
   const [obj, setObj] = useState();
 
   /** 监听变化的元素 */
-  useDom(divRef, (dom: Element) => {
+  useDomSizeChange(divRef, (dom: Element) => {
     if (!dom) {
       return;
     }
@@ -56,14 +56,14 @@ export default Demo1;
 ```tsx
 import React, { useRef, useState, MutableRefObject } from 'react';
 import { Input } from 'antd';
-import { useDom } from 'zp-component-library';
+import { useDomSizeChange } from 'zp-component-library';
 
 const Demo2 = () => {
   const textAreaWrapRef: MutableRefObject<any> = useRef();
   const [obj, setObj] = useState();
 
   /** 监听变化的元素 */
-  useDom(textAreaWrapRef, (dom: Element) => {
+  useDomSizeChange(textAreaWrapRef, (dom: Element) => {
     if (!dom) {
       return;
     }
