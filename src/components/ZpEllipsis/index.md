@@ -1,6 +1,7 @@
 ---
 nav:
   title: ZpEllipsis
+  desc: 文本省略号组件
 group:
   title: 组件
   path: /components
