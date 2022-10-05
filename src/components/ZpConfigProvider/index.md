@@ -8,8 +8,7 @@ group:
 
 ## ZpConfigProvider
 
->在创建 `xzp-component-library` 组件时必须使用的组件，
->提供给 `zp-component-library` 使用的通用参数的 `provider` 组件,一般使用在组件的最外层，类型于 `antd` 的 `ConfigProvider`；将这些值传给 `value`
+> 在创建 `zp-component-library` 组件时必须使用的组件，提供给 `zp-component-library` 使用的通用参数的 `provider` 组件,一般使用在组件的最外层，类型于 `antd` 的 `ConfigProvider`；将这些值传给 `value`
 
 ## antd3 使用
 

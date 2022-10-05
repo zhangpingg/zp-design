@@ -52,8 +52,9 @@
     "less-loader": "7.2.0",
     "less-plugin-functions": "^1.0.0",
     "lint-staged": "^10.0.7",
-    "style-resources-loader": "1.5.0",
     "prettier": "^2.2.1",
+    "style-resources-loader": "1.5.0",
+    "styled-components": "^5.3.6",
     "yorkie": "^2.0.0"
   }
 }
