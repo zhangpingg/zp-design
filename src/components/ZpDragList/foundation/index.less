@@ -1,0 +1,69 @@
+@zp-prefix: zp;
+
+.@{zp-prefix}-drag-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 1px #aaa;
+  .@{zp-prefix}-drag-list-header {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding-left: 26px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .@{zp-prefix}-drag-list-main {
+    max-width: 200px;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    user-select: none;
+    .@{zp-prefix}-drag-list-main-title {
+      padding: 0 8px;
+      color: #bfbfbf;
+      &.left {
+        margin-top: 8px;
+      }
+    }
+    .@{zp-prefix}-drag-item {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 8px;
+      line-height: 32px;
+      .@{zp-prefix}-drag-item-text {
+        flex: 1;
+      }
+      .@{zp-prefix}-drag-item-btn {
+        display: flex;
+        visibility: hidden;
+
+        > *:not(:first-child) {
+          margin-left: 8px;
+        }
+      }
+      &:hover {
+        background-color: rgba(47, 122, 213, 0.1);
+        .@{zp-prefix}-drag-item-btn {
+          visibility: visible;
+        }
+      }
+    }
+    .@{zp-prefix}-drag-item-not {
+      .@{zp-prefix}-drag-item-text {
+        cursor: no-drop;
+      }
+    }
+  }
+  .@{zp-prefix}-drag-list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px;
+    padding: 0 8px;
+    border-top: 1px solid #d9d9d9;
+    > button:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,21 +1,13 @@
-import React, { useEffect } from 'react';
-import { getTextWidth } from '@/utils/str';
-import { EventEmitter } from '@/utils/subscribe';
+import React, { useEffect, useRef } from 'react';
+import './styles/index.less';
 
 const ZpTest = () => {
-  const str = '你好此番还会发你麻烦次机会覅';
-
-  useEffect(() => {
-    const EventBus = new EventEmitter();
-
-    EventBus.on('suscribe', (value) => {
-      console.log(value);
-    });
-
-    EventBus.emit('suscribe', 1);
-  }, []);
-
-  return <div>{getTextWidth(str)}</div>;
+  return (
+    <div>
+      <p className="box-main1">11</p>
+      <p className="box-main2">22</p>
+    </div>
+  );
 };
 
 export default ZpTest;
