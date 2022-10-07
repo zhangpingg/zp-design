@@ -20,6 +20,7 @@ const DragItems: FC<DragItemsProps> = (props) => {
               </Draggable>
             );
           })}
+          {provided.placeholder}
         </div>
       )}
     </Droppable>

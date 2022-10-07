@@ -37,7 +37,6 @@ const DragBox: FC<DragBoxProps> = (props) => {
             }
           }
         }
-        console.log(33, result);
         return result;
       })();
     }

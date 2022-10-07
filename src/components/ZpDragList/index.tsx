@@ -11,7 +11,8 @@ import {
 import classNames from 'classnames';
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { ZpContext } from '../ZpConfigProvider';
-import DragBox from './dragBox';
+import { ZpDragBox } from 'zp-component-library';
+// import DragBox from './dragBox';
 import { sortList } from './const';
 import { DragItemProps, AlignProps } from './interface';
 import './foundation/index.less';
@@ -206,7 +207,7 @@ const DragList = () => {
     return (
       <div>
         {dragBoxTitle(align)}
-        <DragBox
+        <ZpDragBox
           id={align}
           uniqKey="dataIndex"
           dragList={list}
