@@ -9,11 +9,14 @@ group:
 # ZpTest
 
 ## 介绍
+
 ```tsx
-import React, {useCallback, useMemo} from 'react';
-import {ZpTest} from 'zp-component-library';
+import React, { useCallback, useMemo } from 'react';
+import { ZpTest, ZpUtilsStr } from 'zp-component-library';
 
 export default () => {
-  return (<ZpTest />)
-}
+  const { getTextWidth } = ZpUtilsStr;
+  console.log(getTextWidth('你好你好你好你好你好'));
+  return <ZpTest />;
+};
 ```

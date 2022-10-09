@@ -13,7 +13,8 @@ group:
 获取字符串的在元素中的宽度
 
 ```ts
-import { getTextWidth } from '@/utils/str';
+import { ZpUtilsStr } from 'zp-component-library';
+const { getTextWidth } = ZpUtilsStr;
 
 console.log(getTextWidth('你好你好你好你好你好'));
 ```
