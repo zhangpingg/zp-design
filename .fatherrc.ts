@@ -4,6 +4,8 @@ import LessPluginFunctions from 'less-plugin-functions';
 export default {
   // more father 4 config: https://github.com/umijs/father-next/blob/master/docs/config.md
   esm: {},
+
+  // 发布的时候，下面全部要注释掉，后续需要修改下
   entry: 'src/index.ts',
   extraBabelPlugins: [
     [
@@ -21,9 +23,7 @@ export default {
     modifyVars: {
       'ant-prefix': 'ant',
       'font-size-base': '12px',
-      hack: `true; @import (reference) "${path.resolve(
-        'src/styles/override.less',
-      )}";`,
+      hack: `true; @import (reference) "${path.resolve('src/styles/override.less')}";`,
     },
     plugins: [new LessPluginFunctions({ alwaysOverride: true })],
   },
