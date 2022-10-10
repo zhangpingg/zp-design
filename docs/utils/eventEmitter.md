@@ -11,7 +11,9 @@ group:
 ## 使用
 
 ```ts
-import { EventEmitter } from 'zp-component-library';
+import { ZpUtils } from 'zp-component-library';
+
+const { EventEmitter } = ZpUtils;
 
 const EventBus = new EventEmitter();
 

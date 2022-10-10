@@ -1,2 +1,2 @@
-export * as ZpUtilsStr from './str';
-export * as EventEmitter from './subscribe';
+export * from './str';
+export * from './subscribe';
