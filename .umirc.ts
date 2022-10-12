@@ -7,6 +7,7 @@ export default defineConfig({
   favicon:
     'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
   logo: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  mode: 'site',
   outputPath: 'docs-dist',
   // more config: https://d.umijs.org/config
   alias: {
@@ -22,7 +23,7 @@ export default defineConfig({
     // 重新添加 less-loader
     const options = {
       lessOptions: {
-        modifyVars: { '@ant-prefix': 'ant', '@font-size-base': '12px' },
+        modifyVars: { '@ant-prefix': 'zp-ant', '@font-size-base': '12px' },
         javascriptEnabled: true,
         plugins: [new LessPluginFunctions({ alwaysOverride: true })],
       },

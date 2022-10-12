@@ -1,8 +1,7 @@
 ---
 nav:
-  title: ZpTest
-group:
   title: 组件
+group:
   path: /components
 ---
 
