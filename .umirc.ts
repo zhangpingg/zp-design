@@ -1,6 +1,40 @@
 import { defineConfig } from 'dumi';
 import LessPluginFunctions from 'less-plugin-functions';
 import path from 'path';
+import WebpackChain from 'webpack-chain';
+
+// 重新配置less-loader，使其能够换肤
+const LessLoaderConfig = (config: WebpackChain) => {
+  const rule = config.module.rule('less');
+  const cssModule = rule.oneOf('css-modules');
+  const css = rule.oneOf('css');
+  // 删除less-loader
+  cssModule.uses.delete(require.resolve('@umijs/deps/compiled/less-loader'));
+  css.uses.delete(require.resolve('@umijs/deps/compiled/less-loader'));
+
+  // 重新添加 less-loader
+  const options = {
+    lessOptions: {
+      modifyVars: {
+        'ant-prefix': 'zp-ant',
+        'font-size-base': '12px',
+      },
+      javascriptEnabled: true,
+      plugins: [new LessPluginFunctions({ alwaysOverride: true })],
+      math: 'always',
+    },
+  };
+  // 增加thread-loader ，加快编译速度
+  cssModule
+    .use('less-loader')
+    .loader('less-loader')
+    .options({ ...options });
+
+  css
+    .use('less-loader')
+    .loader('less-loader')
+    .options({ ...options });
+};
 
 export default defineConfig({
   title: 'zp-component-library',
@@ -13,47 +47,20 @@ export default defineConfig({
   alias: {
     '@': 'src',
   },
-  chainWebpack: function (config) {
-    const rule = config.module.rule('less');
-    const cssModule = rule.oneOf('css-modules');
-    const css = rule.oneOf('css');
-    // 删除less-loader
-    cssModule.uses.delete(require.resolve('@umijs/deps/compiled/less-loader'));
-    css.uses.delete(require.resolve('@umijs/deps/compiled/less-loader'));
-    // 重新添加 less-loader
-    const options = {
-      lessOptions: {
-        modifyVars: { '@ant-prefix': 'zp-ant', '@font-size-base': '12px' },
-        javascriptEnabled: true,
-        plugins: [new LessPluginFunctions({ alwaysOverride: true })],
+  extraBabelPlugins: [
+    // 按需引入
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es', // default: lib
+        style: true,
       },
-    };
-    cssModule
-      .use('less-loader')
-      .loader('less-loader')
-      .options({ ...options });
-    css
-      .use('less-loader')
-      .loader('less-loader')
-      .options({ ...options });
+    ],
+  ],
+  chainWebpack: function (config) {
+    config.module.rule('js').use('thread-loader').loader('thread-loader').before('babel-loader');
 
-    // 添加 style-resources-loader 将文件注入到每个less文件的后面
-    const resourceOptions = {
-      patterns: [
-        path.resolve(__dirname, './src/styles/less-functions-overrides.less'),
-        path.resolve(__dirname, './src/styles/antd-vars-patch.less'),
-        path.resolve(__dirname, './src/styles/dumi-common.less'),
-      ],
-      injector: 'append',
-    };
-
-    cssModule
-      .use('style-resources-loader')
-      .loader('style-resources-loader')
-      .options({ ...resourceOptions });
-    css
-      .use('style-resources-loader')
-      .loader('style-resources-loader')
-      .options({ ...resourceOptions });
+    LessLoaderConfig(config);
   },
 });

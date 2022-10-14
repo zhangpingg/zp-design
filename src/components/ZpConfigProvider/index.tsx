@@ -3,7 +3,7 @@ import { ZpConfigProviderProp } from './interface';
 
 const defaultValue: ZpConfigProviderProp = {
   prefix: 'zp',
-  antPrefix: 'ant',
+  antPrefix: 'zp-ant',
   antVersion: '4',
   components: {
     message: undefined,

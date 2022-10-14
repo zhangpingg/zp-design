@@ -1,4 +1,4 @@
-import 'antd/dist/antd.css';
+// 公共样式
 import './styles/common.less';
 
 // 导出组件
