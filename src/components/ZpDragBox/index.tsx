@@ -1,10 +1,13 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useContext } from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { DragBoxProps, DragItemProps } from './interface';
 import DragItems from './dragItems';
+import { ZpContext } from '../ZpConfigProvider';
+import { ConfigProvider } from 'antd';
 
 const ZpDragBox: FC<DragBoxProps> = (props) => {
   const { dragList = [], dragEndCb } = props;
+  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
   const [list, setList] = useState<DragItemProps[]>([]);
 
   /** 拖拽完成的回调 */
@@ -60,9 +63,11 @@ const ZpDragBox: FC<DragBoxProps> = (props) => {
   }, [dragList]);
 
   return (
-    <DragDropContext onDragEnd={(e) => dragEnd(e)}>
-      {<DragItems {...props} dragList={list} />}
-    </DragDropContext>
+    <ConfigProvider {...antdConfigProvider} prefixCls={antPrefix}>
+      <DragDropContext onDragEnd={(e) => dragEnd(e)}>
+        {<DragItems {...props} dragList={list} />}
+      </DragDropContext>
+    </ConfigProvider>
   );
 };
 

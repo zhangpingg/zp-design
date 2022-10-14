@@ -2,8 +2,8 @@ import React from 'react';
 import { ZpConfigProviderProp } from './interface';
 
 const defaultValue: ZpConfigProviderProp = {
-  prefix: 'zp',
-  antPrefix: 'zp-ant',
+  prefix: 'zp',         // 开发代码，类名前缀
+  antPrefix: 'zp-ant',  // antd组件，类名前端
   antVersion: '4',
   components: {
     message: undefined,

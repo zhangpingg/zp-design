@@ -18,7 +18,7 @@ import { DragItemProps, AlignProps } from './interface';
 import './foundation/index.less';
 
 const DragList = () => {
-  let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
   message.config({
     prefixCls: `${antPrefix}-message`,
   });

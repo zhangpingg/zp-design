@@ -62,11 +62,7 @@ const EllpsisWrapper = memo(
 );
 
 const ZpEllipsis = (props: ZpEllipsisProps): JSX.Element => {
-  let {
-    prefix = 'zp',
-    antPrefix = 'ant',
-    antdConfigProvider,
-  } = useContext(ZpContext);
+  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
 
   const {
     text,
