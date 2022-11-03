@@ -10,7 +10,7 @@ group:
 
 ## 介绍
 
->防抖按钮和 antd 中的 Button 一样的使用方式，只是多了一个防抖时间 time（默认 300ms）
+> 防抖按钮和 antd 中的 Button 一样的使用方式，只是多了一个防抖时间 time（默认 300ms）默认开启 loading
 
 ## 基本使用，默认 300ms
 
@@ -23,13 +23,15 @@ export default () => {
   const [num, setNum] = useState(0);
 
   const fn1 = useCallback(() => {
-    setNum((prev) => prev + 1);
+    setTimeout(() => {
+      setNum((prev) => prev + 1);
+    }, 2000);
   }, []);
 
   return (
     <ConfigProvider prefixCls="ant">
       <p>{num}</p>
-      <ZpDebounceButton type="primary" onClick={fn1}>
+      <ZpDebounceButton type="primary" loading={false} onClick={fn1}>
         防抖按钮
       </ZpDebounceButton>
     </ConfigProvider>
