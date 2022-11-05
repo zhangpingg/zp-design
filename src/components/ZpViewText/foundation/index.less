@@ -1,0 +1,93 @@
+@zp-prefix: zp;
+
+.@{zp-prefix}-view-text-wrap {
+  .@{zp-prefix}-text-view {
+    display: flex;
+    position: relative;
+    width: 100%;
+    .@{zp-prefix}-text-view-main {
+      display: -webkit-box; // 将对象作为弹性伸缩盒子模型显示
+      overflow: hidden;
+      -webkit-box-orient: vertical; // 从上到下垂直排列子元素
+      word-break: break-all;  // 自动换行
+      .@{zp-prefix}-text-view-main-more {
+        float: right;
+        clear: both;
+        // color: var(--xc-primary-color);
+        cursor: pointer;
+        margin-left: 8px;
+        .@{zp-prefix}-text-view-main-more-btn {
+          padding: 0 4px;
+        }
+        .@{zp-prefix}-text-view-main-more-icon {
+          transform: rotateZ(180deg);
+          transition: transform 0.2;
+        }
+      }
+    }
+    .@{zp-prefix}-text-view-real-text {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+    }
+    .common-text-view-main-before {
+      content: '';
+      float: right;
+      height: 100%;
+    }
+    .@{zp-prefix}-text-view-main-line-height-18::before {
+      .common-text-view-main-before;
+      margin-bottom: -18px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-20::before {
+      .common-text-view-main-before;
+      margin-bottom: -20px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-22::before {
+      .common-text-view-main-before;
+      margin-bottom: -22px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-24::before {
+      .common-text-view-main-before;
+      margin-bottom: -24px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-26::before {
+      .common-text-view-main-before;
+      margin-bottom: -26px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-28::before {
+      .common-text-view-main-before;
+      margin-bottom: -28px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-30::before {
+      .common-text-view-main-before;
+      margin-bottom: -30px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-32::before {
+      .common-text-view-main-before;
+      margin-bottom: -32px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-34::before {
+      .common-text-view-main-before;
+      margin-bottom: -34px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-36::before {
+      .common-text-view-main-before;
+      margin-bottom: -36px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-38::before {
+      .common-text-view-main-before;
+      margin-bottom: -38px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-40::before {
+      .common-text-view-main-before;
+      margin-bottom: -40px;
+    }
+    .@{zp-prefix}-text-view-main-line-height-42::before {
+      .common-text-view-main-before;
+      margin-bottom: -42px;
+    }
+  }
+}

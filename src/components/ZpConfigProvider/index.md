@@ -18,7 +18,7 @@ import { message } from 'antd';
 
 <ZpConfigProvider
   value={{
-    antPrefix: 'xod-ant',
+    antPrefix: 'zp-ant',
     antVersion: '3',
     components: { message },
   }}
@@ -35,7 +35,7 @@ import { message } from 'antd';
 
 <ZpConfigProvider
   value={{
-    antPrefix: 'xod-ant',
+    antPrefix: 'zp-ant',
     antVersion: '4',
   }}
 >
