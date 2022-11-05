@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-export type IXoViewOnlyTextProps = {
+export type ZpViewTextProps = {
   /**
    * @description 展示的文字内容
    * @default

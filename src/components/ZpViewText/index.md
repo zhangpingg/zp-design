@@ -67,4 +67,4 @@ export default () => (
 
 ## `API`
 
-<API src="./api/XoViewOnlyText.tsx" hideTitle></API>
+<API src="./api/ZpViewText.tsx" hideTitle></API>
