@@ -3,11 +3,11 @@ import { Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useDomSizeChange } from 'zp-component-library';
 import { ZpContext } from '../ZpConfigProvider';
-import { IXoViewOnlyTextProps } from './interface';
+import { ZpViewTextProps } from './interface';
 import cn from 'classnames';
 import './foundation/index.less';
 
-const ZpViewText: FC<IXoViewOnlyTextProps> = (props) => {
+const ZpViewText: FC<ZpViewTextProps> = (props) => {
   const { text, isEllipsis = false, rowEllipsis = 2, style } = props || {};
   const { prefix = 'zp' } = useContext(ZpContext);
   const realNodeRef = useRef<HTMLDivElement>(null);
@@ -66,9 +66,9 @@ const ZpViewText: FC<IXoViewOnlyTextProps> = (props) => {
     if (isEllipsis && isShowMoreIcon) {
       return (
         <div onClick={changeIsOpenStatus} className={`${prefix}-text-view-main-more`}>
-          <span className={`${prefix}-text-view-main-more-btn`}>
+          <Button type="link" className={`${prefix}-text-view-main-more-btn`}>
             {!isOpenText ? '展开' : '收起'}
-          </span>
+          </Button>
           <DownOutlined
             className={cn({
               [`${prefix}-text-view-main-more-icon`]: isOpenText,
@@ -112,7 +112,7 @@ const ZpViewText: FC<IXoViewOnlyTextProps> = (props) => {
         handleRowEllipsis(offsetHT);
       }
     },
-    // [handleRowEllipsis, isEllipsis, text],
+    [handleRowEllipsis, isEllipsis, text],
   );
 
   return (

@@ -1,14 +1,17 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { throttle } from 'lodash';
 
 const useDomSizeChange = (
   dom: { current: Element | null },
   cb: (...set: any[]) => any,
+  deps?: any[],
   debounceTimmer = 300,
 ) => {
+  const depsRef = useRef<any>([]);
+
   /** 节流 */
   const throttleCb = throttle((target: Element) => {
-    cb?.(target);
+    cb?.(target, ...depsRef.current);
   }, debounceTimmer);
 
   const obsever = useMemo(() => {
@@ -28,7 +31,10 @@ const useDomSizeChange = (
       obsever.observe(dom.current);
     }
     return () => obsever.disconnect();
-  }, [dom]);
+  }, [dom, ...(deps || [])]);
+  useEffect(() => {
+    depsRef.current = deps || [];
+  }, deps || []);
 
   return null;
 };
