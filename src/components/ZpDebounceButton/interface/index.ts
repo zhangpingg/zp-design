@@ -1,6 +1,6 @@
 import type { ButtonProps } from 'antd/es/button';
 
-export type ZpDebounceButtonBase = {
+export type ZpDebounceButtonBaseProps = {
   /**
    * @description 防抖时间
    * @default 300ms
@@ -13,4 +13,4 @@ export type ZpDebounceButtonBase = {
   onClick?: (e) => boolean;
 };
 
-export type ZpDebounceButtonProps = Omit<ButtonProps, 'onClick'> & ZpDebounceButtonBase;
+export type ZpDebounceButtonProps = Omit<ButtonProps, 'onClick'> & ZpDebounceButtonBaseProps;

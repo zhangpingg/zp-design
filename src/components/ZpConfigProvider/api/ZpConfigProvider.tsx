@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { ZpConfigProviderProp } from '../interface';
+import { ZpConfigProviderProps } from '../interface';
 
-const Index: FC<ZpConfigProviderProp> = () => {
+const Index: FC<ZpConfigProviderProps> = () => {
   return <></>;
 };
 

@@ -1,11 +1,6 @@
 import type { TooltipProps } from 'antd';
-import type {
-  CSSProperties,
-  FocusEventHandler,
-  MouseEventHandler,
-  ReactNode,
-} from 'react';
-export interface ZpEllipsisBase {
+import type { CSSProperties, FocusEventHandler, MouseEventHandler, ReactNode } from 'react';
+export interface ZpEllipsisBaseProps {
   /**
    * @description 显示的文本
    * @requires
@@ -37,7 +32,7 @@ export interface ZpEllipsisBase {
   render?: (text: string) => ReactNode;
 }
 
-export type ZpEllipsisProps = Omit<TooltipProps, 'title'> & ZpEllipsisBase;
+export type ZpEllipsisProps = Omit<TooltipProps, 'title'> & ZpEllipsisBaseProps;
 
 export interface EllpsisWrapperProps
   extends Pick<ZpEllipsisProps, 'text' | 'ellipsisRow' | 'render'> {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { ZpEllipsisBase } from '../interface';
+import { ZpEllipsisBaseProps } from '../interface';
 
-const Index: FC<ZpEllipsisBase> = () => {
+const Index: FC<ZpEllipsisBaseProps> = () => {
   return <></>;
 };
 

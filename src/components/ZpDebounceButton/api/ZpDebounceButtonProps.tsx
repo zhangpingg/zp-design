@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { ZpDebounceButtonBase } from '../interface';
+import { ZpDebounceButtonBaseProps } from '../interface';
 
-const Index: FC<ZpDebounceButtonBase> = () => {
+const Index: FC<ZpDebounceButtonBaseProps> = () => {
   return <></>;
 };
 

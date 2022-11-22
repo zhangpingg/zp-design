@@ -1,6 +1,6 @@
 import { ConfigProviderProps } from 'antd/es/config-provider';
 
-export interface ZpConfigProviderProp {
+export interface ZpConfigProviderProps {
   /**
    * @description zp-component-library 样式前缀
    * @default zp
