@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ZpDebounceButtonBase } from '../interface';
 
-export default (props: ZpDebounceButtonBase) => {
-  return <div>ZpDebounceButton</div>;
+const Index: FC<ZpDebounceButtonBase> = () => {
+  return <></>;
 };
+
+export default Index;

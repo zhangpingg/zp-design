@@ -1,7 +1,8 @@
-import React from 'react';
-import type { ZpEllipsisBase } from '../interface';
+import React, { FC } from 'react';
+import { ZpEllipsisBase } from '../interface';
 
-const ZpEllipsis = (props: ZpEllipsisBase) => {
-  return <div>ZpEllipsis</div>;
+const Index: FC<ZpEllipsisBase> = () => {
+  return <></>;
 };
-export default ZpEllipsis;
+
+export default Index;

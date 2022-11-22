@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import type { ZpViewTextProps } from '../interface';
+import { ZpViewTextProps } from '../interface';
 
-const API: FC<ZpViewTextProps> = () => {
-  return <div>ZpViewTextProps</div>;
+const Index: FC<ZpViewTextProps> = () => {
+  return <></>;
 };
 
-export default API;
+export default Index;

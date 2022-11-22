@@ -1,9 +1,8 @@
+import React, { FC } from 'react';
 import { ZpConfigProviderProp } from '../interface';
 
-import React from 'react';
-
-const ZpConfigProvider = (props: ZpConfigProviderProp) => {
-  return <div>ZpConfigProviderProp</div>;
+const Index: FC<ZpConfigProviderProp> = () => {
+  return <></>;
 };
 
-export default ZpConfigProvider;
+export default Index;

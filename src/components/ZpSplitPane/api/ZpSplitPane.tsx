@@ -1,7 +1,8 @@
-import React from 'react';
-import type { ZpSplitPaneProps } from '../interface';
+import React, { FC } from 'react';
+import { ZpSplitPaneProps } from '../interface';
 
-const ZpSplitPane = (props: ZpSplitPaneProps) => {
-  return <div>ZpSplitPane</div>;
+const Index: FC<ZpSplitPaneProps> = () => {
+  return <></>;
 };
-export default ZpSplitPane;
+
+export default Index;
