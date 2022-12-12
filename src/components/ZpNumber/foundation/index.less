@@ -1,0 +1,37 @@
+@zp-prefix: zp;
+
+// 自定义：公共样式，输入框右侧的复选框
+.common-right-checkbox() {
+  width: 56px;
+  display: flex;
+  margin-top: 5px;
+  justify-content: flex-end;
+  .@{ant-prefix}-checkbox{
+    margin-right: 8px;
+  }
+  span{
+    padding: 0;
+  }
+  .@{ant-prefix}-form-item-control-input-content{
+    position: relative;
+    top:-4px;
+  }
+}
+
+// 自定义1
+.@{zp-prefix}-zp-number-custom-a-wrapper{
+  display: flex;
+  .@{zp-prefix}-zp-number-custom-a-input{
+    flex:1;
+  }
+  .@{zp-prefix}-zp-number-custom-a-diagonal{
+    margin-top: 5px;
+    width: 14px;
+    display: inline-block;
+    text-align: center;
+  }
+  .@{zp-prefix}-zp-number-custom-a-linkage{
+    width:56px;
+    .common-right-checkbox();
+  }
+}
