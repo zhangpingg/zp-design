@@ -7,6 +7,7 @@ import ZpDragList from './ZpDragList';
 import ZpDragBox from './ZpDragBox';
 import ZpViewText from './ZpViewText';
 import ZpNumber from './ZpNumber';
+import ZpNumberRange from './ZpNumberRange';
 import ZpForm from './ZpForm';
 
 export {
@@ -19,5 +20,6 @@ export {
   ZpDragBox,
   ZpViewText,
   ZpNumber,
+  ZpNumberRange,
   ZpForm,
 };

@@ -1,0 +1,22 @@
+@zp-prefix: zp;
+
+.@{zp-prefix}-zp-number-range-wrapper {
+  display: flex !important;
+  .@{zp-prefix}-zp-number-wrapper {
+    flex: 1;
+  }
+  .@{zp-prefix}-zp-number-range-split {
+    background: var(--xc-text-color-inverse);
+    background: none;
+    text-align: center;
+  }
+  .@{zp-prefix}-zp-number-range-start {
+    border-right: 1px solid var(--xc-component-bg);
+  }
+  .@{zp-prefix}-zp-number-range-end {
+    border-left: 1px solid var(--xc-component-bg);
+    .@{ant-prefix}-input {
+      border-left: 1px solid var(--xc-component-bg);
+    }
+  }
+}
