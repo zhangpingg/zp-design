@@ -10,6 +10,7 @@ import ZpForm from './ZpForm';
 import ZpNumber from './ZpNumber';
 import ZpNumberRange from './ZpNumberRange';
 import ZpRadio from './ZpRadio';
+import ZpSelect from './ZpSelect';
 
 export {
   ZpConfigProvider,
@@ -24,4 +25,5 @@ export {
   ZpNumber,
   ZpNumberRange,
   ZpRadio,
+  ZpSelect,
 };
