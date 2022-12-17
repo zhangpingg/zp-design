@@ -17,6 +17,8 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
     onlyInt = false,
     style,
     value,
+    min,
+    max,
     ...lastProps
   } = props;
   let commaNum = 0;
@@ -24,6 +26,16 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
   const isChangeValflag = useRef(false);
   const inputRef = useRef<HTMLInputElement | any>(null);
 
+  /** 去掉数字中间的横杆 */
+  const clearBar = useCallback((val: string) => {
+    const numList = val.split('');
+    const isHasBar = numList[0] === '-';
+    if (isHasBar) {
+      return `-${numList.slice(1).join('').replaceAll('-', '')}`;
+    } else {
+      return numList.join('').replaceAll('-', '');
+    }
+  }, []);
   /** 去除非法输入字符串 */
   const removeIllegalStr = useCallback(
     (val: string) => {
@@ -31,18 +43,25 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
       if (onlyInt) {
         reg = /[^\d^]+/g; // 只能输入数字
       } else {
-        reg = /[^\d^\.]+/g; // 只能输入数字、小数点
+        reg = /[^\-^\d^\.]+/g; // 只能输入数字、小数点、负号
       }
-      return val.replace(reg, '');
+      const multipleBarStr = val.replace(reg, '');
+      return clearBar(multipleBarStr);
     },
     [onlyInt],
   );
   /** 当0在首位的时候，则去除0 */
   const removeFirstZero = useCallback((str: string) => {
-    if (str.length > 1) {
-      const list = str.split('');
+    const list = str.split('');
+    if (str.length === 2) {
       if (list[0] === '0' && list[1] !== '.') {
         list.splice(0, 1);
+      }
+      return list.join('');
+    }
+    if (str.length === 3) {
+      if (list[0] === '-' && list[1] === '0' && list[2] !== '.') {
+        list.splice(1, 1);
       }
       return list.join('');
     }
@@ -77,11 +96,11 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
     [intDigits, precision],
   );
   /** 清空逗号 */
-  const clearComma = useCallback((val: string) => {
+  const clearComma = useCallback((val: string | number | undefined) => {
     if (!val) {
       return '';
     }
-    return val.replace(/\$\s?|(,*)/g, '');
+    return String(val).replace(/\$\s?|(,*)/g, '');
   }, []);
   /** 获取逗号的个数 */
   const getCommaNum = useCallback((str: string) => {
@@ -132,8 +151,16 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
         setNum(res);
       }
       if (blurVal) {
-        lastProps?.onChange?.(clearComma(blurVal));
-        lastProps?.onBlur?.(clearComma(blurVal));
+        const clearAfterNum = clearComma(blurVal);
+        let minMaxVal: number | string = clearAfterNum;
+        if ((min || min === 0) && Number(clearAfterNum) < min) {
+          minMaxVal = min;
+        }
+        if ((max || max === 0) && Number(clearAfterNum) > max) {
+          minMaxVal = max;
+        }
+        lastProps?.onChange?.(minMaxVal);
+        lastProps?.onBlur?.(minMaxVal);
       }
       isChangeValflag.current = false;
     },
@@ -151,7 +178,7 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
     if (precision && autoFill && !isChangeValflag.current) {
       onBlurFn(String(value), false);
     } else {
-      setNum(formatter(String(value)));
+      setNum(clearBar(formatter(String(value))));
     }
   }, [value, isChangeValflag]);
 

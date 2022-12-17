@@ -27,29 +27,36 @@ export default () => {
   /** 数据回显 */
   const echo = () => {
     form.setFieldsValue({
-      a: '12345.00',
-      b: '12345.0000',
-      c: '12345.0',
+      a: '-1234567',
+      b: '12345.00',
+      c: '12345.0000',
+      d: '12345.0',
     });
   };
 
   return (
     <ConfigProvider prefixCls="zp-ant">
       <Form form={form}>
-        <Form.Item label="8位整数位数" name="a" rules={[{ required: true, message: '请输入' }]}>
+        <Form.Item label="默认" name="a">
+          <ZpNumber style={{ width: '200px' }} />
+        </Form.Item>
+        <Form.Item label="8位整数位数" name="b" rules={[{ required: true, message: '请输入' }]}>
           <ZpNumber intDigits={8} style={{ width: '200px' }} />
         </Form.Item>
-        <Form.Item label="保留2位小数" name="b">
-          <ZpNumber precision={2} placeholder={'请输入'} style={{ width: '200px' }} />
+        <Form.Item label="保留2位小数" name="c">
+          <ZpNumber precision={2} style={{ width: '200px' }} />
         </Form.Item>
-        <Form.Item label="8位整数位数,保留4位小数,自动补0" name="c">
+        <Form.Item label="8位整数位数,保留4位小数,自动补0" name="d">
           <ZpNumber intDigits={8} precision={4} autoFill style={{ width: '200px' }} />
         </Form.Item>
-        <Form.Item label="保留2位小数,有单位" name="d">
+        <Form.Item label="保留2位小数,有单位" name="e">
           <ZpNumber precision={2} unit={'元'} style={{ width: '200px' }} />
         </Form.Item>
-        <Form.Item label="正整数" name="e">
-          <ZpNumber onlyInt placeholder={'请输入'} style={{ width: '200px' }} />
+        <Form.Item label="正整数" name="f">
+          <ZpNumber onlyInt style={{ width: '200px' }} />
+        </Form.Item>
+        <Form.Item label="最小值10，最大值10000" name="g">
+          <ZpNumber min={10} max={10000} style={{ width: '200px' }} />
         </Form.Item>
       </Form>
       <Button type="primary" onClick={submit}>

@@ -28,15 +28,20 @@ export interface ZpNumberBaseProps {
    */
   onlyInt?: boolean;
   /**
+   * @description 最小值
+   * @default Number.MIN_SAFE_INTEGER
+   */
+  min?: number;
+  /**
+   * @description 最大值
+   * @default Number.MIN_SAFE_INTEGER	-
+   */
+  max?: number;
+  /**
    * @description wrapper的样式
    * @default
    */
   style?: CSSProperties;
-  /**
-   * @description 业务组件类型，当传入该参数的时候，其他字段不传可以
-   * @default
-   */
-  // businessControlType?: string;
   /**
    * @description 每个输入自定义name,rules，当一个表单项有多个input的时候使用
    * @default
