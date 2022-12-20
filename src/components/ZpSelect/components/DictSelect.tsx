@@ -17,7 +17,7 @@ const DictSelect: React.FC<ZpDictSelectProps> = (props) => {
     disabled,
     ...rest
   } = props;
-  const { antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
 
   /** 获取下拉框数据 */
   const getOptions = useMemo(() => {
@@ -50,7 +50,7 @@ const DictSelect: React.FC<ZpDictSelectProps> = (props) => {
   }, [value, getOptions]);
 
   return (
-    <ConfigProvider {...antdConfigProvider} prefixCls={antPrefix || 'zp-ant'}>
+    <ConfigProvider {...antdConfigProvider} prefixCls={antPrefix}>
       <Select
         showSearch
         allowClear
