@@ -3,8 +3,11 @@ import LessPluginFunctions from 'less-plugin-functions';
 import path from 'path';
 import WebpackChain from 'webpack-chain';
 
-const COMMON_URL = 'http://ip:8762'; // osp开发环境
-const XONE_API = 'http://ip:8020'; // xone开发环境
+// const COMMON_URL = 'http://ip:8762'; // osp开发环境
+const COMMON_URL = 'http://10.150.10.55:8762';
+
+// const XONE_API = 'http://ip:8020'; // xone开发环境
+const XONE_API = 'http://192.168.20.216:8020';
 
 // 重新配置less-loader，使其能够换肤
 const LessLoaderConfig = (config: WebpackChain) => {

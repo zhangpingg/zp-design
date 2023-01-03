@@ -6,6 +6,7 @@ import ZpSplitPane from './ZpSplitPane';
 import ZpDragList from './ZpDragList';
 import ZpDragBox from './ZpDragBox';
 import ZpViewText from './ZpViewText';
+import ZpConfigForm from './ZpConfigForm';
 import ZpForm from './ZpForm';
 import ZpNumber from './ZpNumber';
 import ZpNumberRange from './ZpNumberRange';
@@ -21,6 +22,7 @@ export {
   ZpDragList,
   ZpDragBox,
   ZpViewText,
+  ZpConfigForm,
   ZpForm,
   ZpNumber,
   ZpNumberRange,
