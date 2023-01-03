@@ -3,6 +3,9 @@ import LessPluginFunctions from 'less-plugin-functions';
 import path from 'path';
 import WebpackChain from 'webpack-chain';
 
+const COMMON_URL = 'http://ip:8762'; // osp开发环境
+const XONE_API = 'http://ip:8020'; // xone开发环境
+
 // 重新配置less-loader，使其能够换肤
 const LessLoaderConfig = (config: WebpackChain) => {
   const rule = config.module.rule('less');
@@ -46,6 +49,18 @@ export default defineConfig({
   // more config: https://d.umijs.org/config
   alias: {
     '@': 'src',
+  },
+  proxy: {
+    '/common-api': {
+      target: COMMON_URL,
+      changeOrigin: true,
+      pathRewrite: { '^/common-api': '/' },
+    },
+    '/xone-api': {
+      target: XONE_API,
+      // changeOrigin: true,
+      // pathRewrite: { '^/xone-api': '/' },
+    },
   },
   extraBabelPlugins: [
     // 按需引入

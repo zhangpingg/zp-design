@@ -16,7 +16,7 @@ group:
 
 > 需传入字典对象和对应字典键值
 
-```tsx
+<!-- ```tsx
 import React from 'react';
 import { ConfigProvider, Form } from 'antd';
 import { ZpSelect } from 'zp-component-library';
@@ -40,6 +40,117 @@ export default () => {
     </ConfigProvider>
   );
 };
+``` -->
+
+## 传入查询接口使用
+
+> 需传入对应的查询接口的 Promise 对象，如接口需要额外的查询参数，也需要一并传入，默认 value 取 id 值
+
+```tsx
+import React, { memo, useState } from 'react';
+import { ZpSelect } from 'zp-component-library';
+import { searchSelectApi } from '../../api/index';
+import { IObject } from './interface';
+import { ConfigProvider, Form, Button, message } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+
+const TextApp = () => {
+  const [form] = Form.useForm();
+  const [disabled, setDisabled] = useState(false);
+
+  ConfigProvider.config({
+    prefixCls: 'zp-ant',
+  });
+
+  const fn1APi = (params) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const list = [
+          {
+            id: 23341301,
+            code: '000058',
+            name: '监控组合',
+          },
+          {
+            id: 23342018,
+            code: '000009',
+            name: '易方达天天理财货币A',
+          },
+          {
+            id: 23341243,
+            code: '000046',
+            name: '空名字',
+          },
+          {
+            id: 16002,
+            code: '0000882',
+            name: '0000889AAA',
+          },
+          {
+            id: 21001,
+            code: '00020005',
+            name: '股票测试产品A',
+          },
+        ];
+        resolve(list);
+      }, 2000);
+    });
+  };
+
+  return (
+    <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
+      <Form form={form}>
+        <Form.Item
+          rules={[{ required: true, message: '请选择' }]}
+          name="productCode"
+          label="接口Select"
+          style={{ width: 400 }}
+        >
+          <ZpSelect
+            queryFn={(params) =>
+              // searchSelectApi(params).then((res: any) => res || [])
+              fn1APi(params).then((res: any) => res || [])
+            }
+            getLabel={(i: IObject) => `${i.code} ${i.name}`}
+            extraPayLoads={{ operatorRights: '2' }}
+            disabled={disabled}
+            valueKey={'id'}
+          />
+        </Form.Item>
+        <Button
+          type="primary"
+          onClick={() => {
+            form.validateFields().then((values) => {
+              console.log('提交：', JSON.parse(values.productCode));
+            });
+          }}
+        >
+          提交
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            form.setFieldValue('productCode', 23341301);
+          }}
+          style={{ marginLeft: 10 }}
+        >
+          赋值
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setDisabled(!disabled);
+          }}
+          style={{ marginLeft: 10 }}
+        >
+          {disabled ? '取消置灰' : '置灰'}
+        </Button>
+      </Form>
+    </ConfigProvider>
+  );
+};
+
+export default memo(TextApp);
 ```
 
 ## `API`
