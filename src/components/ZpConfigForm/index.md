@@ -169,7 +169,7 @@ export default () => {
   );
 
   return (
-    <ConfigProvider prefixCls="xcd-ant" locale={zhCN}>
+    <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
       <ZpConfigForm
         commonConfig={{
           userId: '1',
@@ -289,7 +289,7 @@ export default () => {
   }, []);
 
   return (
-    <ConfigProvider prefixCls="xcd-ant">
+    <ConfigProvider prefixCls="zp-ant">
       <ZpConfigForm
         commonConfig={{
           userId: '1',
@@ -411,7 +411,7 @@ export default () => {
   };
 
   return (
-    <ConfigProvider prefixCls="xcd-ant" locale={zhCN}>
+    <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
       <ZpConfigForm
         commonConfig={{
           userId: '1',
@@ -494,7 +494,7 @@ export default () => {
   };
 
   return (
-    <ConfigProvider prefixCls="xcd-ant" locale={zhCN}>
+    <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
       <ZpConfigForm
         commonConfig={{
           userId: '1',
@@ -591,7 +591,7 @@ export default () => {
   };
 
   return (
-    <ConfigProvider prefixCls="xcd-ant" locale={zhCN}>
+    <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
       <ZpConfigForm
         commonConfig={{
           userId: '1',
