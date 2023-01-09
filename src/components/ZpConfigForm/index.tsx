@@ -28,7 +28,7 @@ import classnames from 'classnames';
 import _ from 'lodash';
 import './foundation/index.less';
 
-const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
+const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
   let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
   const {
     commonConfig,
@@ -45,7 +45,7 @@ const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
   } = props;
   const FormWrap = readOnly ? AntdForm : Form;
   const FormItemWrap = readOnly ? AntdForm.Item : Form.Item;
-  const _labelAntPrefix = readOnly ? 'xcd-ant' : labelAntPrefix;
+  const _labelAntPrefix = readOnly ? 'zp-ant' : labelAntPrefix;
   const { getFormConfig, ...paramsProps } = commonConfig;
   const divRef = useRef<HTMLDivElement>(null);
   const [configList, setConfigList] = useState<configItemProps[]>([]); // 接口返回的配置的列表
@@ -207,8 +207,8 @@ const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
         span={layout}
         key={itemName}
         className={classnames({
-          [`${prefix}-xc-config-form-col`]: true,
-          [`${prefix}-xc-config-form-col-hideList`]: listType === 'hideList' && showMore,
+          [`${prefix}-zp-config-form-col`]: true,
+          [`${prefix}-zp-config-form-col-hideList`]: listType === 'hideList' && showMore,
         })}
       >
         <FormItemWrap
@@ -232,8 +232,8 @@ const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
             },
           ]}
           className={classnames({
-            [`${prefix}-xc-config-form-col-form-item`]: true,
-            [`${prefix}-xc-config-form-col-form-item-read`]: readOnly,
+            [`${prefix}-zp-config-form-col-form-item`]: true,
+            [`${prefix}-zp-config-form-col-form-item-read`]: readOnly,
           })}
         >
           {component}
@@ -280,13 +280,13 @@ const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
         {mergeList.length == 0 ? (
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         ) : (
-          <div ref={divRef} className={`${prefix}-xc-config-form-wrapper`}>
+          <div ref={divRef} className={`${prefix}-zp-config-form-wrapper`}>
             <FormWrap {...lastFormProps}>
               {mergeList.map((itemBlock: MergeListProps, index) => (
                 <div
                   key={index}
                   className={classnames({
-                    [`${prefix}-xc-config-form-line`]: !itemBlock.title || !showTitle,
+                    [`${prefix}-zp-config-form-line`]: !itemBlock.title || !showTitle,
                   })}
                 >
                   <HeaderTitle
@@ -333,4 +333,4 @@ const XcConfigForm: FC<ZpConfigFormProps> = (props) => {
   );
 };
 
-export default memo(XcConfigForm);
+export default memo(ZpConfigForm);

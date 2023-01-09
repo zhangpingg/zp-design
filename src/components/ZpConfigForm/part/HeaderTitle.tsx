@@ -16,13 +16,13 @@ const HeaderTitle: FC<HeaderTitleProps> = (props) => {
   const [visible, setVisible] = useState<boolean>(true);
 
   return (
-    <div className={`${prefix}-xc-config-form-title-wrapper`}>
+    <div className={`${prefix}-zp-config-form-title-wrapper`}>
       {!!title && showTitle && (
-        <div className={`${prefix}-xc-config-form-title`}>
+        <div className={`${prefix}-zp-config-form-title`}>
           <span
             className={classnames({
-              [`${prefix}-xc-config-form-title-content`]: true,
-              [`${prefix}-xc-config-form-title-content-weight`]: readOnly,
+              [`${prefix}-zp-config-form-title-content`]: true,
+              [`${prefix}-zp-config-form-title-content-weight`]: readOnly,
             })}
             id={titleId}
           >
@@ -30,13 +30,13 @@ const HeaderTitle: FC<HeaderTitleProps> = (props) => {
           </span>
           {showTitleIcon && (
             <div
-              className={`${prefix}-xc-config-form-title-icon-wrapper`}
+              className={`${prefix}-zp-config-form-title-icon-wrapper`}
               onClick={() => setVisible((prev) => !prev)}
             >
               {visible ? (
-                <MinusSquareOutlined className={`${prefix}-xc-config-form-title-icon`} />
+                <MinusSquareOutlined className={`${prefix}-zp-config-form-title-icon`} />
               ) : (
-                <PlusSquareOutlined className={`${prefix}-xc-config-form-title-icon`} />
+                <PlusSquareOutlined className={`${prefix}-zp-config-form-title-icon`} />
               )}
             </div>
           )}

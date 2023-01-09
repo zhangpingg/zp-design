@@ -1,0 +1,56 @@
+// @import '../../../foundation/base.less';
+@zp-prefix: zp;
+
+.@{zp-prefix}-search-form-append-wrapper {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.@{zp-prefix}-search-from-out-wrapper {
+  border-radius: 4px;
+}
+
+.@{zp-prefix}-search-from-wrapper,
+.@{zp-prefix}-simple-search-form-wrapper {
+  .@{ant-prefix}-form-item-label {
+    > label {
+      width: 100%;
+      justify-content: flex-end;
+      color: var(--xc-text-color);
+    }
+  }
+}
+
+.@{zp-prefix}-simple-search-form-top {
+  display: flex;
+  justify-content: space-between;
+
+  .@{zp-prefix}-simple-search-form-page-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+// 间距调整为8px
+
+.@{ant-prefix}-col{
+  .@{ant-prefix}-form-item {
+    margin-bottom: 8px;
+    &:has(.@{ant-prefix}-form-item-extra){
+      margin-bottom: 0px;
+    }
+  }
+}
+
+// 提示词间距调整为8px
+.@{ant-prefix}-form-item-explain, .@{ant-prefix}-form-item-extra {
+  padding:4px 0px;
+}
+
+
