@@ -9,7 +9,7 @@ import { getDisabledTitle } from '../common/utils';
 
 interface IQueryParams {
   keyWord: string;
-  firstFlag?: boolean;
+  isHasFillVal?: boolean;
   claerCodes?: boolean;
 }
 interface optionType extends DefaultOptionType {
@@ -20,7 +20,7 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
   const {
     mode,
     placeholder = '请选择',
-    searchKey = '',
+    searchKey = 'dataName',
     extraPayLoads,
     queryFn,
     getLabel,
@@ -33,25 +33,24 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
     ...rest
   } = props;
   const { antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
-  // 是否是第一次加载页面的
+  // 是否是首次打开加载该组件
   const isFirst = useRef(true);
   const [optionList, setOptionList] = useState<IObject[]>([]);
   const [fetching, setFetching] = useState(false);
 
   /**
    * 获取下拉框数据
-   * keyWord：用于搜索传参
-   * firstFlag：控制加载页面，表单值回填时是否查询接口，在onSelect时置为false
-   *claerCodes：控制是否清除baseCodes
+   * @keyWord：下拉框输入的内容
+   * @isHasFillVal：是否对下拉框有回填值-即是否有回填|选中,如果有，则设置为true
+   * @claerCodes：是否清除 baseCodes
    */
   const queryData = (args: IQueryParams) => {
-    const { keyWord, firstFlag = false, claerCodes = false } = args;
+    const { keyWord, isHasFillVal = false, claerCodes = false } = args;
     setFetching(true);
     // 搜索的 key 参数对象
-    const searchParams = { [searchKey ? searchKey : 'dataName']: keyWord };
-    let baseCodes = value ? (_.isArray(value) ? value : [value]) : undefined;
-    // 单选形式只在初始化时查询baseCodes，非初始化置空
-    // 正常搜索选择后，再也不会走这里，若是赋值进来的，则需要传 baseCodes 选中值给后台
+    const searchParams = { [searchKey]: keyWord }; // 下拉框输入的内容 {key: value}
+    let baseCodes = value && (_.isArray(value) ? value : [value]); // 有值：不管是单选还是多选，最后都转成数组的形式
+    // 条件：单选框且第二次搜索的时候 | claerCodes-ture => 清空baseCodes
     if ((!mode && !isFirst.current) || claerCodes) {
       baseCodes = undefined;
     }
@@ -62,7 +61,7 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
       ...extraPayLoads,
       baseCodes: !keyWord ? baseCodes : undefined, // 当输入框无值时，需搜索当前选中的值
     };
-    if (firstFlag) isFirst.current = false;
+    if (isHasFillVal) isFirst.current = false;
     queryFn?.(params)
       .then((res) => {
         if (_.isArray(res)) {

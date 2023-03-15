@@ -43,7 +43,7 @@ export type ZpSelectPropsBase = {
   queryFn?: (params: IObject) => Promise<IObject[]>;
   /**
    * @description 调用接口模糊搜索的入参键值
-   * @default -
+   * @default dataName
    */
   searchKey?: string;
   /**
@@ -95,7 +95,6 @@ export type ZpSearchSelectProps = Pick<
   | 'extraPayLoads'
   | 'getLabel'
   | 'valueKey'
-  | 'isEexact'
   | 'title'
   | 'handleSelect'
 > &
