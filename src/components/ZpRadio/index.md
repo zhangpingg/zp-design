@@ -8,6 +8,56 @@ group:
 
 > 基于 `antd` 中的 `Radio` 二次封装，继承 `Radio` 的所有属性 <br /> 可以使用业务组件，也可以自定义单选框数据
 
+## 字典值单选框
+
+```tsx
+import React, { useState, useMemo, useCallback } from 'react';
+import { ConfigProvider, Form, Button } from 'antd';
+import { ZpRadio } from 'zp-component-library';
+
+export default () => {
+  const [form] = Form.useForm();
+  /** 表单提交 */
+  const submit = useCallback(() => {
+    form.validateFields().then((value) => {
+      console.log('表单数据：', value);
+    });
+  }, [form]);
+  /** 设置数据 */
+  const setData = useCallback(() => {
+    form.setFieldsValue({
+      status: '3',
+    });
+  }, []);
+
+  return (
+    <ConfigProvider prefixCls="zp-ant">
+      <Form form={form}>
+        <Form.Item label="审批状态" name="status" rules={[{ required: true, message: '请选择' }]}>
+          <ZpRadio.DictRadio
+            dicts={{
+              APPROVE_RESULT: {
+                '1': '审批通过',
+                '2': '审批拒绝',
+                '3': '审批退回',
+              },
+            }}
+            dictKey="APPROVE_RESULT"
+            include={['1', '2']}
+          />
+        </Form.Item>
+      </Form>
+      <Button type="primary" onClick={submit}>
+        提交
+      </Button>
+      <Button type="primary" onClick={setData} style={{ marginLeft: '10px' }}>
+        设置
+      </Button>
+    </ConfigProvider>
+  );
+};
+```
+
 ## 自定义单选框数据
 
 ```tsx
