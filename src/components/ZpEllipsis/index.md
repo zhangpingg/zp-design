@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ZpEllipsis } from 'zp-component-library';
+import { ZpEllipsis } from 'zp-design';
 
 export default () => {
   const testText =

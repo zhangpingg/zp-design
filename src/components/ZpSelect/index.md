@@ -19,7 +19,7 @@ group:
 <!-- ```tsx
 import React from 'react';
 import { ConfigProvider, Form } from 'antd';
-import { ZpSelect } from 'zp-component-library';
+import { ZpSelect } from 'zp-design';
 import zhCN from 'antd/lib/locale/zh_CN';
 
 export default () => {
@@ -48,7 +48,7 @@ export default () => {
 
 ```tsx
 import React, { memo, useState } from 'react';
-import { ZpSelect } from 'zp-component-library';
+import { ZpSelect } from 'zp-design';
 import { searchSelectApi } from '../../api/index';
 import { IObject } from './interface';
 import { ConfigProvider, Form, Button, message } from 'antd';

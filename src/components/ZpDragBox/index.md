@@ -15,7 +15,7 @@ group:
 ```tsx
 import React, { useState, useContext, useCallback } from 'react';
 import { ConfigProvider } from 'antd';
-import { ZpDragBox } from 'zp-component-library';
+import { ZpDragBox } from 'zp-design';
 import { classNames } from 'classnames';
 import { ZpContext } from '../ZpConfigProvider';
 import { sortList } from './const';

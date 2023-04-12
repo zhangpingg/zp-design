@@ -15,7 +15,7 @@ dom 大小改变时的回调，返回当前元素本身
 ```tsx
 import React, { useState, useRef } from 'react';
 import { Button } from 'antd';
-import { useDomSizeChange } from 'zp-component-library';
+import { useDomSizeChange } from 'zp-design';
 
 const Demo1 = () => {
   const [visible, setVisible] = useState(true);
@@ -56,7 +56,7 @@ export default Demo1;
 ```tsx
 import React, { useRef, useState, MutableRefObject } from 'react';
 import { Input } from 'antd';
-import { useDomSizeChange } from 'zp-component-library';
+import { useDomSizeChange } from 'zp-design';
 
 const Demo2 = () => {
   const textAreaWrapRef: MutableRefObject<any> = useRef();

@@ -17,7 +17,7 @@ group:
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider } from 'antd';
-import { ZpDebounceButton } from 'zp-component-library';
+import { ZpDebounceButton } from 'zp-design';
 
 export default () => {
   const [num, setNum] = useState(0);

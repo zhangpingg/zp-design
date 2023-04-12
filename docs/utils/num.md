@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { ZpUtils } from 'zp-component-library';
+import { ZpUtils } from 'zp-design';
 import { InputNumber, ConfigProvider } from 'antd';
 
 const { formatNum } = ZpUtils;
@@ -48,7 +48,7 @@ export default Demo;
 
 ```tsx
 import React from 'react';
-import { ZpUtils } from 'zp-component-library';
+import { ZpUtils } from 'zp-design';
 
 const { plus } = ZpUtils;
 
@@ -76,7 +76,7 @@ export default Demo;
 
 ```tsx
 import React from 'react';
-import { ZpUtils } from 'zp-component-library';
+import { ZpUtils } from 'zp-design';
 
 const { accReduce } = ZpUtils;
 
@@ -104,7 +104,7 @@ export default Demo;
 
 ```tsx
 import React from 'react';
-import { ZpUtils } from 'zp-component-library';
+import { ZpUtils } from 'zp-design';
 
 const { accMul } = ZpUtils;
 
@@ -132,7 +132,7 @@ export default Demo;
 
 ```tsx
 import React from 'react';
-import { ZpUtils } from 'zp-component-library';
+import { ZpUtils } from 'zp-design';
 
 const { accDiv } = ZpUtils;
 

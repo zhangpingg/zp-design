@@ -11,7 +11,7 @@ import {
 import classNames from 'classnames';
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { ZpContext } from '../ZpConfigProvider';
-import { ZpDragBox } from 'zp-component-library';
+import { ZpDragBox } from 'zp-design';
 // import DragBox from './dragBox';
 import { sortList } from './const';
 import { DragItemProps, AlignProps } from './interface';

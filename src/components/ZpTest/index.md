@@ -11,7 +11,7 @@ group:
 
 ```tsx
 import React, { useCallback, useMemo } from 'react';
-import { ZpTest, ZpUtils } from 'zp-component-library';
+import { ZpTest, ZpUtils } from 'zp-design';
 
 export default () => {
   const { getTextWidth } = ZpUtils;

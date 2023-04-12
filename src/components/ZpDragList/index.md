@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ZpDragList } from 'zp-component-library';
+import { ZpDragList } from 'zp-design';
 
 export default () => {
   return <ZpDragList />;

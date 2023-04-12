@@ -1,7 +1,7 @@
 import React, { FC, memo, useContext, useMemo, useState, useRef, useCallback } from 'react';
 import { Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useDomSizeChange } from 'zp-component-library';
+import { useDomSizeChange } from 'zp-design';
 import { ZpContext } from '../ZpConfigProvider';
 import { ZpViewTextProps } from './interface';
 import cn from 'classnames';

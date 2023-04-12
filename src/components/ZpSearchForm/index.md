@@ -28,7 +28,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ZpSearchForm, ZpEllipsis } from 'zp-component-library';
+import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 import { Input, Select, Form, Button } from 'antd';
 
 const { Option } = Select;
@@ -133,7 +133,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { ZpSearchForm, ZpEllipsis } from 'zp-component-library';
+import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 import { Input, Select, InputNumber, Form, Button } from 'antd';
 
 export default () => {
@@ -208,7 +208,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { ZpSearchForm } from 'zp-component-library';
+import { ZpSearchForm } from 'zp-design';
 import { Input, Dropdown, Form, Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 const { SimpleSearchForm } = ZpSearchForm;
@@ -259,7 +259,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { ZpSearchForm, ZpEllipsis } from 'zp-component-library';
+import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 import { Input, Dropdown, Form, Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 const { SimpleSearchForm } = ZpSearchForm;
@@ -364,7 +364,7 @@ import React, { useCallback, useMemo } from 'react';
 import { Input, Dropdown, Form, Button, Menu } from 'antd';
 import { formListBase } from './foundation/const';
 import { DownOutlined } from '@ant-design/icons';
-import { ZpSearchForm, ZpEllipsis } from 'zp-component-library';
+import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 const { SimpleSearchForm } = ZpSearchForm;
 
 export default () => {

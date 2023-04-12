@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ZpSplitPane } from 'zp-component-library';
+import { ZpSplitPane } from 'zp-design';
 
 export default () => (
   <div style={{ height: '200px' }}>
@@ -30,7 +30,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { ZpSplitPane } from 'zp-component-library';
+import { ZpSplitPane } from 'zp-design';
 
 export default () => (
   <div style={{ height: '200px' }}>
@@ -48,7 +48,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { ZpSplitPane } from 'zp-component-library';
+import { ZpSplitPane } from 'zp-design';
 
 export default () => (
   <div style={{ height: '300px' }}>
@@ -64,7 +64,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { ZpSplitPane } from 'zp-component-library';
+import { ZpSplitPane } from 'zp-design';
 
 export default () => (
   <div style={{ height: '200px' }}>

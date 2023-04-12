@@ -1,4 +1,4 @@
-# zp-component-library
+# zp-design
 
 ## Getting Started
 

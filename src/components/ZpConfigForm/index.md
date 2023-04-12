@@ -15,7 +15,7 @@ group:
 ```tsx
 import React, { useCallback, useMemo } from 'react';
 import { ConfigProvider, Form, Button, Input, Select, DatePicker } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList1 } from './const';
 
@@ -103,7 +103,7 @@ export default () => {
 ```tsx
 import React, { useCallback, useMemo } from 'react';
 import { ConfigProvider, Form, Button, Input, Select, DatePicker } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList2 } from './const';
 
@@ -195,7 +195,7 @@ export default () => {
 ```tsx
 import React, { useCallback, useMemo, useEffect } from 'react';
 import { ConfigProvider, Form, Button, Input, Select, DatePicker } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { formList3 } from './const';
 
@@ -315,7 +315,7 @@ export default () => {
 ```tsx
 import React, { useCallback, useMemo, useEffect, useState } from 'react';
 import { ConfigProvider, Form, Button, Input, Select, DatePicker } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList4 } from './const';
 import { getFormItemConfig } from '../../api';
@@ -456,7 +456,7 @@ import {
   Card,
   Collapse,
 } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList5 } from './const';
 
@@ -529,7 +529,7 @@ import {
   Card,
   Collapse,
 } from 'antd';
-import { ZpConfigForm } from 'zp-component-library';
+import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList6 } from './const';
 

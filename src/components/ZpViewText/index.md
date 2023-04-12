@@ -15,7 +15,7 @@ group:
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { ZpViewText } from 'zp-component-library';
+import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
 export default () => (
@@ -32,7 +32,7 @@ export default () => (
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { ZpViewText } from 'zp-component-library';
+import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
 export default () => (
@@ -49,7 +49,7 @@ export default () => (
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { ZpViewText } from 'zp-component-library';
+import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
 export default () => (

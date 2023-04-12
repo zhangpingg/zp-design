@@ -15,7 +15,7 @@ group:
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpNumberRange } from 'zp-component-library';
+import { ZpNumberRange } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -79,7 +79,7 @@ export default () => {
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpNumberRange } from 'zp-component-library';
+import { ZpNumberRange } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -161,7 +161,7 @@ export default () => {
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpNumberRange } from 'zp-component-library';
+import { ZpNumberRange } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();

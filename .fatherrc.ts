@@ -3,7 +3,10 @@ import LessPluginFunctions from 'less-plugin-functions';
 
 export default {
   // more father 4 config: https://github.com/umijs/father-next/blob/master/docs/config.md
-  esm: {},
+  esm: {
+    type: 'rollup',
+    minify: false,
+  },
 
   // 发布的时候，下面全部要注释掉，后续需要修改下
   entry: 'src/index.ts',

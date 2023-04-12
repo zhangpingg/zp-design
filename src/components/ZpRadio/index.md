@@ -13,7 +13,7 @@ group:
 ```tsx
 import React, { useState, useMemo, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpRadio } from 'zp-component-library';
+import { ZpRadio } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -63,7 +63,7 @@ export default () => {
 ```tsx
 import React, { useState, useMemo, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpRadio } from 'zp-component-library';
+import { ZpRadio } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -111,7 +111,7 @@ export default () => {
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpRadio } from 'zp-component-library';
+import { ZpRadio } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();

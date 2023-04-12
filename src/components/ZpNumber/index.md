@@ -13,7 +13,7 @@ group:
 ```tsx
 import React, { useState, useCallback, useEffect } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
-import { ZpNumber } from 'zp-component-library';
+import { ZpNumber } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -75,7 +75,7 @@ export default () => {
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button, Row, Col } from 'antd';
-import { ZpNumber } from 'zp-component-library';
+import { ZpNumber } from 'zp-design';
 
 export default () => {
   const [form] = Form.useForm();
@@ -138,7 +138,7 @@ export default () => {
 ```tsx
 import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button, Row, Col } from 'antd';
-import { ZpNumber } from 'zp-component-library';
+import { ZpNumber } from 'zp-design';
 import CustomComponentA from './customJoin/CustomComponentA';
 
 export default () => {
