@@ -18,7 +18,7 @@ export default {
       },
     ],
   ],
-  extraRollupPlugins: [commonJs()], // alias()
+  extraRollupPlugins: [commonJs()],
   lessInRollupMode: {
     javascriptEnabled: true,
     modifyVars: {

@@ -1,15 +1,11 @@
 import { defineConfig } from 'dumi';
 import LessPluginFunctions from 'less-plugin-functions';
 import path from 'path';
+import WebpackChain from 'webpack-chain';
 
-// const COMMON_URL = 'http://192.168.0.232:8762'; // osp 开发环境
-const COMMON_URL = 'http://10.150.10.55:8762'; // osp 开发环境(华为云)
-// const COMMON_URL = 'http://192.168.20.245:8762'; // 国寿osp 测试环境
-// const COMMON_URL = 'http://192.168.0.151:8762'; // osp  鑫元测试环境
+const COMMON_URL = 'http://ip:8762'; // osp开发环境
 
-// const XIN_YUAN_API = 'http://192.168.0.116:8005'; // 鑫元开发环境
-const XONE_API = 'http://192.168.20.216:8020'; // 开发环境
-// const XIN_YUAN_API = 'http://192.168.0.151:8005'; // 鑫元测试环境
+const XONE_API = 'http://ip:8020'; // xone开发环境
 
 export default defineConfig({
   title: 'zp-design',
