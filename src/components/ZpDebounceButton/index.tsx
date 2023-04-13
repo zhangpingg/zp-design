@@ -6,7 +6,7 @@ import { ZpDebounceButtonProps } from './interface';
 import './foundation/index.less';
 
 const ZpDebounceButton: FC<ZpDebounceButtonProps> = (props) => {
-  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
   const { onClick, time = 300, children, ...rest } = props;
   const [loading, setLoading] = useState(false);
 

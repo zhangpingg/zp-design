@@ -1,7 +1,15 @@
-import React, { FC, memo, useContext, useMemo, useState, useRef, useCallback } from 'react';
+import React, {
+  FC,
+  memo,
+  useContext,
+  useMemo,
+  useState,
+  useRef,
+  useCallback,
+} from 'react';
 import { Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useDomSizeChange } from 'zp-design';
+import { useDomSizeChange } from '../../hooks';
 import { ZpContext } from '../ZpConfigProvider';
 import { ZpViewTextProps } from './interface';
 import cn from 'classnames';
@@ -65,7 +73,10 @@ const ZpViewText: FC<ZpViewTextProps> = (props) => {
   const moreBtn = useMemo(() => {
     if (isEllipsis && isShowMoreIcon) {
       return (
-        <div onClick={changeIsOpenStatus} className={`${prefix}-text-view-main-more`}>
+        <div
+          onClick={changeIsOpenStatus}
+          className={`${prefix}-text-view-main-more`}
+        >
           <Button type="link" className={`${prefix}-text-view-main-more-btn`}>
             {!isOpenText ? '展开' : '收起'}
           </Button>
@@ -95,7 +106,11 @@ const ZpViewText: FC<ZpViewTextProps> = (props) => {
   const realNode = useMemo(() => {
     if (isEllipsis) {
       return (
-        <div ref={realNodeRef} className={`${prefix}-text-view-real-text`} style={style}>
+        <div
+          ref={realNodeRef}
+          className={`${prefix}-text-view-real-text`}
+          style={style}
+        >
           {text}
         </div>
       );

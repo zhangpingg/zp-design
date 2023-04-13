@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { ZpConfigFormBaseProps } from '../interface';
-const ZpConfigForm = (props: ZpConfigFormBaseProps) => {
-  return <div>ZpConfigForm</div>;
+
+const Index: FC<ZpConfigFormBaseProps> = () => {
+  return <></>;
 };
-export default ZpConfigForm;
+export default Index;

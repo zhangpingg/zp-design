@@ -1,4 +1,11 @@
-import React, { CSSProperties, FC, useState, ReactNode, useCallback, useContext } from 'react';
+import React, {
+  CSSProperties,
+  FC,
+  useState,
+  ReactNode,
+  useCallback,
+  useContext,
+} from 'react';
 import { ConfigProvider } from 'antd';
 import { ZpContext } from '../ZpConfigProvider';
 import { SplitPaneWapper } from './styles';
@@ -28,7 +35,7 @@ const ZpSplitPane: FC<ZpSplitPaneProps> = (props) => {
     onDragFinished, // 拖拽结束回调
     onChange, // 拖动过程回调
   } = props;
-  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { antPrefix, antdConfigProvider } = useContext(ZpContext);
   const notNullChildren = removeNullChildren(children);
   const [pane1, setPane1] = useState<HTMLDivElement | null>(null); // 元素1
   const [pane2, setPane2] = useState<HTMLDivElement | null>(null); // 元素2
@@ -77,7 +84,10 @@ const ZpSplitPane: FC<ZpSplitPaneProps> = (props) => {
       return;
     }
     /** 按下前的主元素宽、高 */
-    const oldSize = split === 'vertical' ? dragNode.offsetHeight || 0 : dragNode.offsetWidth || 0;
+    const oldSize =
+      split === 'vertical'
+        ? dragNode.offsetHeight || 0
+        : dragNode.offsetWidth || 0;
 
     document.onmouseup = onMouseUp; // 鼠标按键被松开时触发
     document.ondragend = onMouseUp; // 用户完成元素拖动后触发
@@ -98,7 +108,8 @@ const ZpSplitPane: FC<ZpSplitPaneProps> = (props) => {
       } else if (newSize > maxSize) {
         newSize = maxSize;
       }
-      dragNode.style[split === 'vertical' ? 'height' : 'width'] = newSize + 'px';
+      dragNode.style[split === 'vertical' ? 'height' : 'width'] =
+        newSize + 'px';
       onChange && onChange(e, newSize);
     };
     onDragStarted && onDragStarted(event);
@@ -115,7 +126,12 @@ const ZpSplitPane: FC<ZpSplitPaneProps> = (props) => {
         >
           {notNullChildren[0]}
         </Pane>
-        <Resizer key="resizer" split={split} onMouseDown={onMouseDown} allowResize={allowResize} />
+        <Resizer
+          key="resizer"
+          split={split}
+          onMouseDown={onMouseDown}
+          allowResize={allowResize}
+        />
         <Pane
           key="pane2"
           split={split}

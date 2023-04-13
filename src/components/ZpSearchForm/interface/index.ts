@@ -1,4 +1,7 @@
-import type { CommonConfigParamsProps, FormItemBaseProps } from '../../ZpConfigForm/interface';
+import type {
+  CommonConfigParamsProps,
+  FormItemBaseProps,
+} from '../../ZpConfigForm/interface';
 import type { Form, FormItemProps, FormProps } from 'antd';
 import type { ReactNode } from 'react';
 
@@ -30,7 +33,9 @@ export interface ConfigFormProps {
    * @description 获取表单项列表的接口
    * @default undefined
    */
-  getFormConfig: (params: CommonConfigParamsProps) => Promise<ConfigResponseItem[]>;
+  getFormConfig: (
+    params: CommonConfigParamsProps,
+  ) => Promise<ConfigResponseItem[]>;
 }
 export interface FormItemBase {
   /**
@@ -57,7 +62,8 @@ export interface FormItemBase {
   labelFormat?: (text: string) => ReactNode;
 }
 
-export type FormItem<Value = any> = FormItemBase & Omit<FormItemProps<Value>, 'name'>;
+export type FormItem<Value = any> = FormItemBase &
+  Omit<FormItemProps<Value>, 'name'>;
 
 interface AppendBase {
   /**
@@ -89,9 +95,11 @@ interface FromCommonConfig<Value = any> {
   formConfig?: ConfigFormProps;
 }
 
-export type ZpSearchFormBase<Value = any> = AppendBase & FromCommonConfig<Value>;
+export type ZpSearchFormBase<Value = any> = AppendBase &
+  FromCommonConfig<Value>;
 
-export type ZpSearchFormProps<Value = any> = ZpSearchFormBase<Value> & FormProps<Value>;
+export type ZpSearchFormProps<Value = any> = ZpSearchFormBase<Value> &
+  FormProps<Value>;
 
 export interface AppendBtnProps extends Partial<AppendBase> {
   isExpand: boolean;
@@ -100,7 +108,9 @@ export interface AppendBtnProps extends Partial<AppendBase> {
   setIsExpand?: (flag: boolean) => any;
 }
 
-export interface SimpleSearchFormBase<Value = any> extends AppendBase, FromCommonConfig<Value> {
+export interface SimpleSearchFormBase<Value = any>
+  extends AppendBase,
+    FromCommonConfig<Value> {
   /**
    * @description 页面title
    * @default '''
@@ -112,7 +122,8 @@ export interface SimpleSearchFormBase<Value = any> extends AppendBase, FromCommo
   contentLaseElement?: JSX.Element;
 }
 
-export type SimpleSearchFormProps<Value = any> = FormProps<Value> & SimpleSearchFormBase<Value>;
+export type SimpleSearchFormProps<Value = any> = FormProps<Value> &
+  SimpleSearchFormBase<Value>;
 
 export interface SearchFormItemContentProps<Value = any> extends AppendBase {
   formList: FormItem<Value>[];

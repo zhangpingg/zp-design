@@ -12,7 +12,15 @@ import React, {
 import { ZpContext } from '../ZpConfigProvider';
 import { getTextWidth } from '../../utils/str';
 import ZpEllipsis from '../ZpEllipsis';
-import { ConfigProvider, Row, Col, Spin, Button, Empty, Form as AntdForm } from 'antd';
+import {
+  ConfigProvider,
+  Row,
+  Col,
+  Spin,
+  Button,
+  Empty,
+  Form as AntdForm,
+} from 'antd';
 import HeaderTitle from './part/HeaderTitle';
 import {
   ZpConfigFormProps,
@@ -21,7 +29,6 @@ import {
   FormItemBaseProps,
   RuleItemProps,
   configItemProps,
-  FormListItemProps,
 } from './interface';
 import { useUpdateEffect } from 'ahooks';
 import classnames from 'classnames';
@@ -29,7 +36,11 @@ import _ from 'lodash';
 import './foundation/index.less';
 
 const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
-  let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+  const {
+    prefix = 'zp',
+    antPrefix = 'zp-ant',
+    antdConfigProvider,
+  } = useContext(ZpContext);
   const {
     commonConfig,
     formList = [],
@@ -39,7 +50,7 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
     showTitle = true,
     showTitleIcon = true,
     Form,
-    labelAntPrefix,
+    labelAntPrefix = 'zp-ant',
     readOnly = false,
     ...lastFormProps
   } = props;
@@ -55,16 +66,19 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
   const [moreFlagList, setMoreFlagList] = useState<string[]>([]); // 存储打开了哪些更多的内容
 
   /** 文案盒子宽度 */
-  const getTextWrapperWidth = useCallback((textWidth, isRequired, isTooltip) => {
-    let res: number = textWidth;
-    if (isRequired) {
-      res += 2;
-    }
-    if (isTooltip) {
-      res += 20;
-    }
-    return res;
-  }, []);
+  const getTextWrapperWidth = useCallback(
+    (textWidth, isRequired, isTooltip) => {
+      let res: number = textWidth;
+      if (isRequired) {
+        res += 2;
+      }
+      if (isTooltip) {
+        res += 20;
+      }
+      return res;
+    },
+    [],
+  );
   /** 获取 rules 中的 required*/
   const getRulesRequire = useCallback(
     (item: Partial<FormItemProps & { rules?: RuleItemProps[] }>) => {
@@ -95,7 +109,7 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
   const getRealTextWidth = useCallback(
     (textWidth, isRequired, isTooltip) => {
       let maxWidth = String(labelWidth) !== '-Infinity' ? labelWidth : 96;
-      let realTextWidth: number = textWidth;
+      const realTextWidth: number = textWidth;
       if (isRequired) {
         maxWidth -= 2;
       }
@@ -136,29 +150,40 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
       if (configList.length === 0) {
         return;
       }
-      let allList: FormItemBaseProps[] = [];
+      const allList: FormItemBaseProps[] = [];
       const tempList = configList.map((itemBlock) => {
         const _itemBlock: any = _.cloneDeep(itemBlock);
-        _itemBlock.children = _itemBlock.children?.map((item: FormItemBaseProps) => {
-          const singleItemList = formList.filter((el) => el.itemName === item.itemName);
-          allList.push(item);
-          return { ...item, ...singleItemList[0] };
-        });
-        _itemBlock.showList = _itemBlock.children?.filter((el: FormItemProps) => {
-          if (el.areaType === 1) {
-            el.required = readOnly ? 0 : el.required;
-            return el;
-          }
-        });
-        _itemBlock.hideList = _itemBlock.children?.filter((el: FormItemProps) => {
-          if (el.areaType === 2) {
-            el.required = readOnly ? 0 : el.required;
-            return el;
-          }
-        });
+        _itemBlock.children = _itemBlock.children?.map(
+          (item: FormItemBaseProps) => {
+            const singleItemList = formList.filter(
+              (el) => el.itemName === item.itemName,
+            );
+            allList.push(item);
+            return { ...item, ...singleItemList[0] };
+          },
+        );
+        _itemBlock.showList = _itemBlock.children?.filter(
+          (el: FormItemProps) => {
+            if (el.areaType === 1) {
+              el.required = readOnly ? 0 : el.required;
+              return el;
+            }
+          },
+        );
+        _itemBlock.hideList = _itemBlock.children?.filter(
+          (el: FormItemProps) => {
+            if (el.areaType === 2) {
+              el.required = readOnly ? 0 : el.required;
+              return el;
+            }
+          },
+        );
         _itemBlock.showMore = _itemBlock?.hideList?.length > 0;
         _itemBlock.moreFlag = !moreFlagList.includes(_itemBlock.title);
-        if (_itemBlock.children.length === 1 && _itemBlock.children[0].itemName == 'empytChunk') {
+        if (
+          _itemBlock.children.length === 1 &&
+          _itemBlock.children[0].itemName == 'empytChunk'
+        ) {
           _itemBlock.chunkFlag = true;
         }
         return _itemBlock;
@@ -187,9 +212,17 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
   }, [getFormConfig, paramsProps, formList]);
   /** 循环的模块 */
   const loopItem = (
-    { itemName, hidden, layout, required, label, component, ...lastItemProps }: any,
+    {
+      itemName,
+      hidden,
+      layout,
+      required,
+      label,
+      component,
+      ...lastItemProps
+    }: any,
     listType: string,
-    showMore: boolean = false,
+    showMore = false,
   ) => {
     const laseTtemObj: Partial<FormItemProps> = _.omit({ ...lastItemProps }, [
       'menuCode',
@@ -208,7 +241,8 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
         key={itemName}
         className={classnames({
           [`${prefix}-zp-config-form-col`]: true,
-          [`${prefix}-zp-config-form-col-hideList`]: listType === 'hideList' && showMore,
+          [`${prefix}-zp-config-form-col-hideList`]:
+            listType === 'hideList' && showMore,
         })}
       >
         <FormItemWrap
@@ -247,7 +281,7 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
       const tempList = [...prev];
       tempList[index].moreFlag = !tempList[index].moreFlag;
       setMoreFlagList((prev) => {
-        let tempPrev = [...prev];
+        const tempPrev = [...prev];
         if (!tempPrev.includes(tempList[index].title)) {
           tempPrev.push(tempList[index].title);
         } else {
@@ -286,7 +320,8 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
                 <div
                   key={index}
                   className={classnames({
-                    [`${prefix}-zp-config-form-line`]: !itemBlock.title || !showTitle,
+                    [`${prefix}-zp-config-form-line`]:
+                      !itemBlock.title || !showTitle,
                   })}
                 >
                   <HeaderTitle
@@ -299,22 +334,29 @@ const ZpConfigForm: FC<ZpConfigFormProps> = (props) => {
                   >
                     {itemBlock.chunkFlag ? (
                       chunkList.length > 0 &&
-                      chunkList.splice(0, 1).map((itemChunk: { component: ReactNode }, index) => (
-                        <div key={index} style={{ marginBottom: '16px' }}>
-                          {itemChunk.component}
-                        </div>
-                      ))
+                      chunkList
+                        .splice(0, 1)
+                        .map((itemChunk: { component: ReactNode }, index) => (
+                          <div key={index} style={{ marginBottom: '16px' }}>
+                            {itemChunk.component}
+                          </div>
+                        ))
                     ) : (
                       <>
                         <Row gutter={24}>
-                          {itemBlock.showList?.map((item) => loopItem(item, 'showList'))}
+                          {itemBlock.showList?.map((item) =>
+                            loopItem(item, 'showList'),
+                          )}
                           {itemBlock.hideList?.map((item) =>
                             loopItem(item, 'hideList', itemBlock.moreFlag),
                           )}
                         </Row>
                         {itemBlock.showMore && (
                           <div className={`${prefix}-more-btn`}>
-                            <Button type="link" onClick={() => changeMore(index)}>
+                            <Button
+                              type="link"
+                              onClick={() => changeMore(index)}
+                            >
                               {itemBlock.moreFlag ? '更多' : '收起'}
                             </Button>
                           </div>

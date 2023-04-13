@@ -1,1 +1,3 @@
-export { default as useDomSizeChange } from './useDomSizeChange';
+import useDomSizeChange from './useDomSizeChange';
+
+export { useDomSizeChange };

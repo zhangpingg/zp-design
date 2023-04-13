@@ -1,5 +1,18 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { Dropdown, Checkbox, Button, ConfigProvider, message, Tooltip } from 'antd';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import {
+  Dropdown,
+  Checkbox,
+  Button,
+  ConfigProvider,
+  message,
+  Tooltip,
+} from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import {
   VerticalAlignBottomOutlined,
@@ -11,14 +24,13 @@ import {
 import classNames from 'classnames';
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { ZpContext } from '../ZpConfigProvider';
-import { ZpDragBox } from 'zp-design';
-// import DragBox from './dragBox';
+import ZpDragBox from '../ZpDragBox';
 import { sortList } from './const';
 import { DragItemProps, AlignProps } from './interface';
 import './foundation/index.less';
 
 const DragList = () => {
-  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
   message.config({
     prefixCls: `${antPrefix}-message`,
   });
@@ -51,7 +63,8 @@ const DragList = () => {
       setMiddleCols((prev) => {
         return prev.map((item: DragItemProps) => ({
           ...item,
-          checked: item.dataIndex === dataIndex ? e.target.checked : item.checked,
+          checked:
+            item.dataIndex === dataIndex ? e.target.checked : item.checked,
         }));
       });
     },
@@ -96,7 +109,11 @@ const DragList = () => {
   }, []);
 
   /** 设置固定列组（左中右） */
-  const setListSequence = (current: AlignProps, to: AlignProps, item: DragItemProps) => {
+  const setListSequence = (
+    current: AlignProps,
+    to: AlignProps,
+    item: DragItemProps,
+  ) => {
     const customMap = {
       left: leftCols,
       center: middleCols,
@@ -122,17 +139,24 @@ const DragList = () => {
       });
     } else {
       const currentNode = { ...item, fixed: undefined, disabled: false };
-      current === 'left' ? newCurrentList.unshift(currentNode) : newCurrentList.push(currentNode);
+      current === 'left'
+        ? newCurrentList.unshift(currentNode)
+        : newCurrentList.push(currentNode);
     }
     // 设置当前
-    const currentList = customMap[current].filter((v) => v.dataIndex !== item.dataIndex);
+    const currentList = customMap[current].filter(
+      (v) => v.dataIndex !== item.dataIndex,
+    );
     customMap[`set${current}`]?.(currentList); // 来源列表重新设置
     customMap[`set${to}`]?.(newCurrentList); // 去向列表重新设置
   };
   /** 可拖拽的每一项 item - 按钮（置未坐中右列） */
   const dragItemBtn = (align: AlignProps, item: DragItemProps) => {
     return (
-      <div style={{ margin: '0 8px', width: '16px' }} className={`${prefix}-drag-item-btn`}>
+      <div
+        style={{ margin: '0 8px', width: '16px' }}
+        className={`${prefix}-drag-item-btn`}
+      >
         {['center', 'right'].includes(align) && (
           <Tooltip title="固定在左侧">
             <VerticalAlignTopOutlined
@@ -161,7 +185,10 @@ const DragList = () => {
     );
   };
   /** 可拖拽的每一项 item */
-  const dragItem = (align: AlignProps) => (item: DragItemProps, provided: DraggableProvided) => {
+  const dragItem = (align: AlignProps) => (
+    item: DragItemProps,
+    provided: DraggableProvided,
+  ) => {
     return (
       <div
         className={classNames(`${prefix}-drag-item`, {
@@ -178,7 +205,10 @@ const DragList = () => {
           checked={item.checked}
           onChange={(e) => changeItemCheckbox(item.dataIndex, e)}
         />
-        <span className={`${prefix}-drag-item-text`} {...provided.dragHandleProps}>
+        <span
+          className={`${prefix}-drag-item-text`}
+          {...provided.dragHandleProps}
+        >
           {item.title}
         </span>
         {dragItemBtn(align, item)}

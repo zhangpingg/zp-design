@@ -4,19 +4,22 @@
  * @param font 字体大小,需要传px的字符串，默认为12px
  * @returns 字符串应该的宽度
  */
- export function getTextWidth(
-    text: string,
-    font: string = '12px',
-    fontFamily?: string,
-  ): number {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    const currentFontFamily =
-      fontFamily || getComputedStyle(document.body).fontFamily;
-    if (!context) {
-      return text.length * (Number(font.replace('px', '')) || 12);
-    }
-    context.font = `${font} ${currentFontFamily}`;
-    const metrics = context.measureText(text);
-    return metrics.width;
+const getTextWidth = (
+  text: string,
+  font = '12px',
+  fontFamily?: string | undefined,
+): number => {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  const currentFontFamily =
+    fontFamily || getComputedStyle(document.body).fontFamily;
+  console.log('context', context);
+  if (!context) {
+    return text.length * (Number(font.replace('px', '')) || 12);
   }
+  context.font = `${font} ${currentFontFamily}`;
+  const metrics = context.measureText(text);
+  return metrics.width;
+};
+
+export { getTextWidth };

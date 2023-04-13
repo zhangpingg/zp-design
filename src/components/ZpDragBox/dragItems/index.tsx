@@ -16,7 +16,9 @@ const DragItems: FC<DragItemsProps> = (props) => {
                 index={index}
                 isDragDisabled={item.disabled}
               >
-                {(provided1, snapshot) => <>{render(item, provided1, snapshot)}</>}
+                {(provided1, snapshot) => (
+                  <>{render(item, provided1, snapshot)}</>
+                )}
               </Draggable>
             );
           })}

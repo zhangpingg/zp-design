@@ -1,5 +1,10 @@
 import type { TooltipProps } from 'antd';
-import type { CSSProperties, FocusEventHandler, MouseEventHandler, ReactNode } from 'react';
+import type {
+  CSSProperties,
+  FocusEventHandler,
+  MouseEventHandler,
+  ReactNode,
+} from 'react';
 export interface ZpEllipsisBaseProps {
   /**
    * @description 显示的文本

@@ -1,5 +1,13 @@
-import React, { FC, useContext, useRef, useState, useMemo, useEffect, useCallback } from 'react';
-import { Select, ConfigProvider, Form } from 'antd';
+import React, {
+  FC,
+  useContext,
+  useRef,
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+} from 'react';
+import { Select, ConfigProvider } from 'antd';
 import { ZpContext } from '../../ZpConfigProvider';
 import { ZpSearchSelectProps, IObject } from '../interface';
 import _ from 'lodash';
@@ -11,6 +19,7 @@ interface IQueryParams {
   keyWord: string;
   isHasFillVal?: boolean;
   claerCodes?: boolean;
+  firstFlag?: boolean;
 }
 interface optionType extends DefaultOptionType {
   allData: IObject;
@@ -27,8 +36,6 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
     valueKey = 'id',
     value,
     disabled,
-    id = '',
-    oneSelected,
     handleSelect,
     ...rest
   } = props;
@@ -125,7 +132,10 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
         filterOption={false}
         onSearch={_.debounce((val: string) => queryData({ keyWord: val }), 300)}
         onFocus={_.debounce(() => queryData({ keyWord: '' }), 300)}
-        onClear={_.debounce(() => queryData({ keyWord: '', claerCodes: true }), 300)}
+        onClear={_.debounce(
+          () => queryData({ keyWord: '', claerCodes: true }),
+          300,
+        )}
         options={getOptions}
         loading={fetching}
         value={value}

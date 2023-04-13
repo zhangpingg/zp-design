@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { SimpleSearchFormBase } from '../interface';
-const SimpleSearchForm = (props: SimpleSearchFormBase) => {
-  return <div>SimpleSearchForm</div>;
+
+const Index: FC<SimpleSearchFormBase> = () => {
+  return <></>;
 };
-export default SimpleSearchForm;
+export default Index;

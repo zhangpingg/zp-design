@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { ConfigFormProps } from '../interface';
-const configFormProps = (props: ConfigFormProps) => {
-  return <div>ConfigFormProps</div>;
+
+const Index: FC<ConfigFormProps> = () => {
+  return <></>;
 };
-export default configFormProps;
+export default Index;

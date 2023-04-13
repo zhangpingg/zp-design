@@ -78,7 +78,10 @@ export interface FormItemComponentProps {
   tooltip?: Object;
 }
 
-export type FormItemProps = Omit<FormItemBaseProps, 'userId' | 'menuCode' | 'formId'> &
+export type FormItemProps = Omit<
+  FormItemBaseProps,
+  'userId' | 'menuCode' | 'formId'
+> &
   FormItemComponentProps;
 
 export type FormListItemProps = Partial<FormItemProps> & FormItemComponentProps;
@@ -134,7 +137,9 @@ export type CommonConfigProps = CommonConfigParamsProps & {
    * @description 获取表单项列表的接口
    * @default
    */
-  getFormConfig: (params: CommonConfigParamsProps) => Promise<configItemProps[]>;
+  getFormConfig: (
+    params: CommonConfigParamsProps,
+  ) => Promise<configItemProps[]>;
 };
 export interface ZpConfigFormBaseProps {
   /**

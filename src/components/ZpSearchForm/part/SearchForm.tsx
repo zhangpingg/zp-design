@@ -9,7 +9,11 @@ import useRewriteForm from '../hooks/useRewriteForm';
 import useRealConfig from '../hooks/useRealConfig';
 
 const SearchForm = (props: ZpSearchFormProps) => {
-  let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+  const {
+    prefix = 'zp',
+    antPrefix = 'zp-ant',
+    antdConfigProvider,
+  } = useContext(ZpContext);
 
   const {
     formList,

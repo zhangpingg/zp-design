@@ -1,5 +1,12 @@
 /* eslint-disable no-useless-escape */
-import React, { FC, useCallback, useRef, useState, useContext, useEffect } from 'react';
+import React, {
+  FC,
+  useCallback,
+  useRef,
+  useState,
+  useContext,
+  useEffect,
+} from 'react';
 import { ZpContext } from '../../ZpConfigProvider';
 import { ConfigProvider, Input } from 'antd';
 import { useUpdateEffect } from 'ahooks';
@@ -68,13 +75,16 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
     return str;
   }, []);
   /** 截取数字 */
-  const interceptNum = useCallback((str: string, length: number | undefined) => {
-    let res = str;
-    if (!!length && res.length > length) {
-      res = res.substring(0, length);
-    }
-    return res;
-  }, []);
+  const interceptNum = useCallback(
+    (str: string, length: number | undefined) => {
+      let res = str;
+      if (!!length && res.length > length) {
+        res = res.substring(0, length);
+      }
+      return res;
+    },
+    [],
+  );
   /** 格式化千分位 */
   const formatter = useCallback(
     (val: string | number) => {
@@ -91,7 +101,9 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
       }
       return res
         .toString()
-        .replace(/\d+/, (num) => num.replace(/(\d)(?=(\d{3})+$)/g, ($1) => `${$1},`));
+        .replace(/\d+/, (num) =>
+          num.replace(/(\d)(?=(\d{3})+$)/g, ($1) => `${$1},`),
+        );
     },
     [intDigits, precision],
   );
@@ -147,7 +159,9 @@ const ZpNumber: FC<ZpNumberProps> = (props) => {
       if (!autoFill) {
         const list = blurVal.split('.');
         const integer = clearComma(list[0]);
-        const res = !list[1] ? formatter(integer) : `${formatter(integer)}.${list[1]}`;
+        const res = !list[1]
+          ? formatter(integer)
+          : `${formatter(integer)}.${list[1]}`;
         setNum(res);
       }
       if (blurVal) {

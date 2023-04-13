@@ -13,4 +13,5 @@ export interface ZpDebounceButtonBaseProps {
   onClick?: (e) => boolean;
 }
 
-export type ZpDebounceButtonProps = Omit<ButtonProps, 'onClick'> & ZpDebounceButtonBaseProps;
+export type ZpDebounceButtonProps = Omit<ButtonProps, 'onClick'> &
+  ZpDebounceButtonBaseProps;

@@ -7,7 +7,7 @@ import { ConfigProvider } from 'antd';
 
 const ZpDragBox: FC<DragBoxProps> = (props) => {
   const { dragList = [], dragEndCb } = props;
-  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { antPrefix, antdConfigProvider } = useContext(ZpContext);
   const [list, setList] = useState<DragItemProps[]>([]);
 
   /** 拖拽完成的回调 */

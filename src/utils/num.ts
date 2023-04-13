@@ -13,7 +13,10 @@ const formatNum = (num, precision = 8, autoFill = false) => {
   const _suffix = autoFill ? Array(precision).fill(0).join('') : '';
   if (/\.{1}/g.test(_num)) {
     const arr = _num.split('.');
-    return `${arr[0].replace(reg, ',')}.${`${arr[1]}${_suffix}`.substring(0, precision)}`;
+    return `${arr[0].replace(reg, ',')}.${`${arr[1]}${_suffix}`.substring(
+      0,
+      precision,
+    )}`;
   }
   if (autoFill) {
     return `${_num.replace(reg, ',')}.${_suffix}`;
@@ -113,7 +116,10 @@ const accDiv = (...nums) => {
   checkBoundary(num1Int);
   checkBoundary(num2Int);
   // fix: 类似 10 ** -4 为 0.00009999999999999999，strip 修正
-  return accMul(num1Int / num2Int, strip(Math.pow(10, decimalLength(num2) - decimalLength(num1))));
+  return accMul(
+    num1Int / num2Int,
+    strip(Math.pow(10, decimalLength(num2) - decimalLength(num1))),
+  );
 };
 
 export { formatNum, plus, accReduce, accMul, accDiv };

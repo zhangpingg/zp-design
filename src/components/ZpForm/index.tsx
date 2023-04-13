@@ -7,9 +7,9 @@ import ErrorList from 'antd/lib/form/ErrorList';
 import BaseForm from './BaseForm';
 
 // 我们还要用给Form包裹一层，直接导出不会带这几个方法
-// xunce-design：form Form.item     xcd
-// xone-design：                    xod
-// 业务：自定义表单 Form.item        ant-xqxj
+// xunce-design：form Form.item     xcd-ant
+// xone-design：                    xod-ant
+// 业务：自定义表单 Form.item        xqxj-ant
 // 因为input是写在xone-design的，前缀是xod-ant，所以最好是form.item 的前缀也要是xod-ant ，那就必须由xone-deisgn导出Form，
 // 分别给需要的地方去使用（即传给xunce-design中的配置化表单、业务代码中的自定义拼接的表单项）
 

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { FormItemBase } from '../interface';
-const FormItem = (props: FormItemBase) => {
-  return <div>FormItem</div>;
+
+const Index: FC<FormItemBase> = () => {
+  return <></>;
 };
-export default FormItem;
+export default Index;

@@ -10,7 +10,9 @@ const CustomComponentA: FC<any> = (props) => {
   const { formItemAttr: formItemAttr1, lastProps1 } = list?.[0];
   const { formItemAttr: formItemAttr2, lastProps2 } = list?.[1];
   const { formItemAttr: formItemAttr3, lastProps3 } = list?.[2];
-  const { prefix = 'zp', antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { prefix = 'zp', antPrefix, antdConfigProvider } = useContext(
+    ZpContext,
+  );
 
   useEffect(() => {
     form.setFieldsValue({

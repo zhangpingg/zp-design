@@ -1,4 +1,4 @@
-import { getTextWidth } from '@/utils/str';
+import { getTextWidth } from '../../utils/str';
 import React, {
   CSSProperties,
   memo,
@@ -62,7 +62,7 @@ const EllpsisWrapper = memo(
 );
 
 const ZpEllipsis = (props: ZpEllipsisProps): JSX.Element => {
-  let { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
+  const { prefix, antPrefix, antdConfigProvider } = useContext(ZpContext);
 
   const {
     text,
@@ -73,8 +73,8 @@ const ZpEllipsis = (props: ZpEllipsisProps): JSX.Element => {
     ...toolTipProps
   } = props;
 
-  const [textWidth, setTextWidth] = useState<number>(0);  // 内容的宽度
-  const [maxWidth, setMaxWidth] = useState<number>(0);    // 盒子的宽度
+  const [textWidth, setTextWidth] = useState<number>(0); // 内容的宽度
+  const [maxWidth, setMaxWidth] = useState<number>(0); // 盒子的宽度
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   /** 获取外框的宽度 */

@@ -1,7 +1,7 @@
 import commonZpSelect from './components';
 
 type commonZpSelectProps = typeof commonZpSelect;
-interface commonZpSelectAllProps extends commonZpSelectProps {}
+type commonZpSelectAllProps = commonZpSelectProps;
 
 const ZpSelect = commonZpSelect as commonZpSelectAllProps;
 

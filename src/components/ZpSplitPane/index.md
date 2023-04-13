@@ -1,6 +1,6 @@
 ---
 nav:
-  title: ZpSplitPane
+  title: 组件库
 group:
   title: 组件
   path: /components

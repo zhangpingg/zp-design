@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { ZpSearchFormBase } from '../interface';
-const ZpSearchForm = (props: ZpSearchFormBase) => {
-  return <div>ZpSearchForm</div>;
+
+const Index: FC<ZpSearchFormBase> = () => {
+  return <></>;
 };
-export default ZpSearchForm;
+export default Index;

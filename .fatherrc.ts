@@ -1,15 +1,13 @@
 import path from 'path';
 import LessPluginFunctions from 'less-plugin-functions';
+import commonJs from 'rollup-plugin-commonjs';
 
 export default {
-  // more father 4 config: https://github.com/umijs/father-next/blob/master/docs/config.md
+  entry: 'src/index.ts',
   esm: {
     type: 'rollup',
     minify: false,
   },
-
-  // 发布的时候，下面全部要注释掉，后续需要修改下
-  entry: 'src/index.ts',
   extraBabelPlugins: [
     [
       'babel-plugin-import',
@@ -20,13 +18,15 @@ export default {
       },
     ],
   ],
-  // extraRollupPlugins: [commonJs()],
+  extraRollupPlugins: [commonJs()], // alias()
   lessInRollupMode: {
     javascriptEnabled: true,
     modifyVars: {
-      'ant-prefix': 'ant',
+      'ant-prefix': 'zp-ant',
       'font-size-base': '12px',
-      hack: `true; @import (reference) "${path.resolve('src/styles/override.less')}";`,
+      hack: `true; @import (reference) "${path.resolve(
+        'src/styles/override.less',
+      )}";`,
     },
     plugins: [new LessPluginFunctions({ alwaysOverride: true })],
   },

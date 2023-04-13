@@ -34,9 +34,13 @@ const HeaderTitle: FC<HeaderTitleProps> = (props) => {
               onClick={() => setVisible((prev) => !prev)}
             >
               {visible ? (
-                <MinusSquareOutlined className={`${prefix}-zp-config-form-title-icon`} />
+                <MinusSquareOutlined
+                  className={`${prefix}-zp-config-form-title-icon`}
+                />
               ) : (
-                <PlusSquareOutlined className={`${prefix}-zp-config-form-title-icon`} />
+                <PlusSquareOutlined
+                  className={`${prefix}-zp-config-form-title-icon`}
+                />
               )}
             </div>
           )}

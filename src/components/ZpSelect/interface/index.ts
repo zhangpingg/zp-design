@@ -11,11 +11,6 @@ type RequiredOptional<T, O extends keyof T> = Required<Pick<T, O>> & Omit<T, O>;
 
 export type ZpSelectPropsBase = {
   /**
-   * @description 当下拉选项只有一条数据时，是否默认选中
-   * @default false
-   */
-  oneSelected?: boolean;
-  /**
    * @description 控制需要展示的值域，只在字典下拉选项中生效
    * @default []
    */
@@ -83,13 +78,12 @@ export type ZpSelectProps = ZpSelectPropsBase & SelectProps;
 
 export type ZpDictSelectProps = Pick<
   ZpSelectProps,
-  'dicts' | 'dictKey' | 'include' | 'exclude' | 'oneSelected' | 'title' | 'oneSelected'
+  'dicts' | 'dictKey' | 'include' | 'exclude' | 'title'
 > &
   SelectProps;
 
 export type ZpSearchSelectProps = Pick<
   ZpSelectProps,
-  | 'oneSelected'
   | 'queryFn'
   | 'searchKey'
   | 'extraPayLoads'
@@ -101,10 +95,19 @@ export type ZpSearchSelectProps = Pick<
   SelectProps;
 
 // 搜索类型业务组件基本类型
-export type ZpBaseSearchControlType = RequiredOptional<ZpSearchSelectProps, 'queryFn'>;
+export type ZpBaseSearchControlType = RequiredOptional<
+  ZpSearchSelectProps,
+  'queryFn'
+>;
 
 // 字典类型业务组件基本类型
-export type ZpBaseDictControlType = Omit<RequiredOptional<ZpDictSelectProps, 'dicts'>, 'distKey'>;
+export type ZpBaseDictControlType = Omit<
+  RequiredOptional<ZpDictSelectProps, 'dicts'>,
+  'distKey'
+>;
 
 // 组合名称 投资经理
-export type ZpExtraSelectProps = RequiredOptional<ZpSearchSelectProps, 'queryFn' | 'extraPayLoads'>;
+export type ZpExtraSelectProps = RequiredOptional<
+  ZpSearchSelectProps,
+  'queryFn' | 'extraPayLoads'
+>;

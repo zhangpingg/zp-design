@@ -1,4 +1,3 @@
-import { Col } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
 import { memo } from 'react';
@@ -6,7 +5,14 @@ import { AppendBtnProps } from '../interface';
 import ExpantBtn from './ExpandBtn';
 // 按钮项
 const AppendBtn = memo((props: AppendBtnProps) => {
-  const { showExpand, lastElement, isExpand = false, prefix, antPrefix, setIsExpand } = props;
+  const {
+    showExpand,
+    lastElement,
+    isExpand = false,
+    prefix,
+    antPrefix,
+    setIsExpand,
+  } = props;
   if (!showExpand && !lastElement) {
     return null;
   }
@@ -20,7 +26,11 @@ const AppendBtn = memo((props: AppendBtnProps) => {
       )}
     >
       {showExpand ? (
-        <ExpantBtn prefix={prefix} isExpand={isExpand} setIsExpand={setIsExpand} />
+        <ExpantBtn
+          prefix={prefix}
+          isExpand={isExpand}
+          setIsExpand={setIsExpand}
+        />
       ) : null}
       {lastElement ? lastElement : null}
     </div>

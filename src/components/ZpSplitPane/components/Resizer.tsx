@@ -71,7 +71,7 @@ const Resizer: FC<ResizerProps> = (props) => {
     <div style={wrapperStyle}>
       <span
         style={splitStyle}
-        onMouseDown={(event) => onMouseDown?.(event as unknown as MouseEvent)}
+        onMouseDown={(event) => onMouseDown?.((event as unknown) as MouseEvent)}
         onTouchStart={(event) => preventDefaultEvent(event, onTouchStart)}
         onClick={(event) => preventDefaultEvent(event, onClick)}
       />

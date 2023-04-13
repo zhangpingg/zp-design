@@ -13,7 +13,11 @@ import useRewriteForm from '../hooks/useRewriteForm';
 import useRealConfig from '../hooks/useRealConfig';
 
 const SimpleSearchForm: FC<SimpleSearchFormProps> = (props) => {
-  const { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+  const {
+    prefix = 'zp',
+    antPrefix = 'zp-ant',
+    antdConfigProvider,
+  } = useContext(ZpContext);
   const classPrefix = `${prefix}-simple-search-form`;
 
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -47,7 +51,12 @@ const SimpleSearchForm: FC<SimpleSearchFormProps> = (props) => {
         <Form form={formNew} {...formProps}>
           <Spin spinning={isLoading}>
             <div className={`${classPrefix}-top`}>
-              <span className={classNames(`${classPrefix}-page-title`, `${antPrefix}-form-item`)}>
+              <span
+                className={classNames(
+                  `${classPrefix}-page-title`,
+                  `${antPrefix}-form-item`,
+                )}
+              >
                 {title}
               </span>
               <AppendBtn

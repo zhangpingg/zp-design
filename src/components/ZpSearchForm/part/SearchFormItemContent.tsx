@@ -4,13 +4,19 @@ import { Col, Form as AntForm, Row } from 'antd';
 import React, { useContext, useState, useMemo, useEffect } from 'react';
 import { SearchFormItemContentProps } from '../interface';
 import AppendBtn from './AppendBtn';
-import { InfoCircleOutlined } from '@ant-design/icons';
 
 // 普通筛选的表单体
 const SearchFormItemContent = (props: SearchFormItemContentProps) => {
   const { prefix = 'zp', antPrefix = 'zp-ant' } = useContext(ZpContext);
 
-  const { formList, span, lastElement, showExpand, resetLabelWidht, Form = AntForm } = props;
+  const {
+    formList,
+    span,
+    lastElement,
+    showExpand,
+    resetLabelWidht,
+    Form = AntForm,
+  } = props;
 
   const [isExpand, setIsExpand] = useState<boolean>(false);
 
@@ -88,31 +94,17 @@ const SearchFormItemContent = (props: SearchFormItemContentProps) => {
 
   return (
     <Row gutter={24}>
-      {formList.map(
-        ({ label, content, name, tooltip, labelFormat, labelWidth, ...formItemProps }) => {
-          const showItem = showFormItemKey.includes(name);
-          const colSpan = showItem ? span : 0;
-          return (
-            <Col span={colSpan} key={name}>
-              <Form.Item
-                tooltip={
-                  tooltip
-                    ? {
-                        title: tooltip,
-                        icon: <InfoCircleOutlined />,
-                      }
-                    : undefined
-                }
-                {...formItemProps}
-                label={label}
-                name={name}
-              >
-                {content}
-              </Form.Item>
-            </Col>
-          );
-        },
-      )}
+      {formList.map(({ label, content, name, ...formItemProps }) => {
+        const showItem = showFormItemKey.includes(name);
+        const colSpan = showItem ? span : 0;
+        return (
+          <Col span={colSpan} key={name}>
+            <Form.Item {...formItemProps} label={label} name={name}>
+              {content}
+            </Form.Item>
+          </Col>
+        );
+      })}
       {!doShowExpand && !lastElement ? null : (
         <Col span={span} offset={appendOffset}>
           <AppendBtn

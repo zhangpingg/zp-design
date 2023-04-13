@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import type { CommonConfigProps } from '../interface';
-const CommonConfig = (props: CommonConfigProps) => {
-  return <div>CommonConfig</div>;
+
+const Index: FC<CommonConfigProps> = () => {
+  return <></>;
 };
-export default CommonConfig;
+export default Index;

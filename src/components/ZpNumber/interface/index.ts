@@ -59,4 +59,5 @@ export interface ZpNumberBaseProps {
   onBlur?: Function;
 }
 
-export type ZpNumberProps = Omit<InputProps, 'onChange' | 'onBlur'> & ZpNumberBaseProps;
+export type ZpNumberProps = Omit<InputProps, 'onChange' | 'onBlur'> &
+  ZpNumberBaseProps;

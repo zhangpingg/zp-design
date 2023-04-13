@@ -1,4 +1,12 @@
-import React, { FC, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { ConfigProvider, Input, Select } from 'antd';
 import ZpNumber from '../../ZpNumber';
 import { ZpContext } from '../../ZpConfigProvider';
@@ -11,7 +19,11 @@ const ZpNumberRange: FC<ZpNumberRangeProps> = (props) => {
   const { formItemAttr: formItemAttr1, ...lastProps1 } = list?.[0];
   const { formItemAttr: formItemAttr2, ...lastProps2 } = list?.[1];
   const { formItemAttr: formItemAttr3 } = list?.[2];
-  const { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+  const {
+    prefix = 'zp',
+    antPrefix = 'zp-ant',
+    antdConfigProvider,
+  } = useContext(ZpContext);
   const [rangeObj, setRangeObj] = useState({});
   const [illegalSize, setIllegalSize] = useState(false);
 
@@ -39,12 +51,15 @@ const ZpNumberRange: FC<ZpNumberRangeProps> = (props) => {
       setRangeObj((prev) => {
         const tempPrev = {
           ...prev,
-          [origin == 'start' ? formItemAttr1?.name?.[1] : formItemAttr2?.name?.[1]]: val,
+          [origin == 'start'
+            ? formItemAttr1?.name?.[1]
+            : formItemAttr2?.name?.[1]]: val,
         };
         if (
           !!tempPrev[formItemAttr1?.name?.[1]] &&
           !!tempPrev[formItemAttr2?.name?.[1]] &&
-          Number(tempPrev[formItemAttr1?.name?.[1]]) > Number(tempPrev[formItemAttr2?.name?.[1]])
+          Number(tempPrev[formItemAttr1?.name?.[1]]) >
+            Number(tempPrev[formItemAttr2?.name?.[1]])
         ) {
           setIllegalSize(true);
         } else {

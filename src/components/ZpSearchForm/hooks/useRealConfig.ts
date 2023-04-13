@@ -1,20 +1,27 @@
 import { useEffect, useMemo, useState } from 'react';
-import { transformConfigForm2FormList, vaildateCommonConfig } from '../foundation';
+import {
+  transformConfigForm2FormList,
+  vaildateCommonConfig,
+} from '../foundation';
 import { ConfigFormProps, FormItem, PickFormItemBaseProp } from '../interface';
 
-const useRealConfig = <Value = any>(formList: FormItem<Value>[], formConfig?: ConfigFormProps) => {
+const useRealConfig = <Value = any>(
+  formList: FormItem<Value>[],
+  formConfig?: ConfigFormProps,
+) => {
   const [searchFormConfig, setSearchFormConfig] = useState<typeof formList>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const flag = vaildateCommonConfig(formConfig); // 检查是否配置了 commonConfig
-    const { getFormConfig, userId = '', menuCode = '', formId = 'formId' } = formConfig || {};
+    const { getFormConfig, userId = '', menuCode = '', formId = 'formId' } =
+      formConfig || {};
 
     if (flag) {
       setIsLoading(true);
       getFormConfig?.({ userId, menuCode, formId })
         .then((res) => {
-          let reslist: PickFormItemBaseProp[] = [];
+          const reslist: PickFormItemBaseProp[] = [];
 
           res.reduce((pre, cur) => {
             if (cur.children) {

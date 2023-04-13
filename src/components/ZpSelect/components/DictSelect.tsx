@@ -1,5 +1,5 @@
 import React, { memo, useContext, useCallback, useMemo } from 'react';
-import { Select, ConfigProvider, Form } from 'antd';
+import { Select, ConfigProvider } from 'antd';
 import { ZpContext } from '../../ZpConfigProvider';
 import { ZpDictSelectProps } from '../interface';
 import _ from 'lodash';
@@ -12,7 +12,6 @@ const DictSelect: React.FC<ZpDictSelectProps> = (props) => {
     dictKey = '',
     include = [],
     exclude = [],
-    oneSelected,
     value,
     disabled,
     ...rest
@@ -58,8 +57,8 @@ const DictSelect: React.FC<ZpDictSelectProps> = (props) => {
         getPopupContainer={(triggerNode) => triggerNode.parentElement}
         options={getOptions}
         filterOption={(input, option) =>
-          (option!.label as unknown as string).includes(input) ||
-          (option!.value as unknown as string).includes(input)
+          ((option!.label as unknown) as string).includes(input) ||
+          ((option!.value as unknown) as string).includes(input)
         }
         value={value}
         disabled={disabled}

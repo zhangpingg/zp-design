@@ -1,4 +1,8 @@
-import type { ConfigFormProps, FormItem, PickFormItemBaseProp } from '../interface';
+import type {
+  ConfigFormProps,
+  FormItem,
+  PickFormItemBaseProp,
+} from '../interface';
 
 /** 检查公共配置 CommonConfig */
 export function vaildateCommonConfig(commonConfig?: ConfigFormProps) {

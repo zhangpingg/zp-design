@@ -5,7 +5,13 @@ import _ from 'lodash';
 import { DictRadioProps, OptionsItemProps } from '../interface';
 
 const DictRadio: FC<DictRadioProps> = (props) => {
-  const { dicts = {}, dictKey = '', include = [], exclude = [], ...lastProps } = props;
+  const {
+    dicts = {},
+    dictKey = '',
+    include = [],
+    exclude = [],
+    ...lastProps
+  } = props;
   const { antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
 
   const options = useMemo(() => {
