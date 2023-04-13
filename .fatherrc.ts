@@ -1,4 +1,3 @@
-import path from 'path';
 import LessPluginFunctions from 'less-plugin-functions';
 import commonJs from 'rollup-plugin-commonjs';
 
@@ -24,9 +23,6 @@ export default {
     modifyVars: {
       'ant-prefix': 'zp-ant',
       'font-size-base': '12px',
-      hack: `true; @import (reference) "${path.resolve(
-        'src/styles/override.less',
-      )}";`,
     },
     plugins: [new LessPluginFunctions({ alwaysOverride: true })],
   },
