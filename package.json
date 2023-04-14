@@ -1,6 +1,6 @@
 {
 	"name": "zp-design",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"license": "ISC",
 	"scripts": {
 		"start": "dumi dev",
