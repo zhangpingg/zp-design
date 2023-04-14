@@ -31,3 +31,10 @@ Build library via `father`,
 ```bash
 $ npm run build
 ```
+
+发布
+
+```bash
+$ npm adduser
+$ npm publsh
+```
