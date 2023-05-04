@@ -14,9 +14,8 @@ const downloadFile = (res: any, messageText = '文件导出成功') => {
       a.href = blobUrl;
       document.body.appendChild(a);
       a.click();
-      setTimeout(() => {
-        document.body.removeChild(a);
-      });
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
     });
     message.success(messageText);
   } else {
