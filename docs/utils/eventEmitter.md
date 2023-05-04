@@ -10,16 +10,31 @@ group:
 
 ## 使用
 
-```ts
+```tsx
+import React, { useEffect, useState } from 'react';
 import { ZpUtils } from 'zp-design';
+import { Button } from 'antd';
 
 const { EventEmitter } = ZpUtils;
 
-const EventBus = new EventEmitter();
+export default () => {
+  const EventBus = new EventEmitter();
+  const [data, setData] = useState('');
 
-EventBus.on('name', (value) => {
-  console.log(value);
-});
+  const emitFn = () => {
+    EventBus.emit('closeModal', '发送的数据');
+  };
+  useEffect(() => {
+    EventBus.on('closeModal', (data) => {
+      setData(data);
+    });
+  }, []);
 
-EventBus.emit('name', 1);
+  return (
+    <div>
+      <Button onClick={emitFn}>发送</Button>
+      <p>内容：{data}</p>
+    </div>
+  );
+};
 ```
