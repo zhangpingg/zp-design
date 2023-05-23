@@ -56,7 +56,18 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
     setFetching(true);
     // 搜索的 key 参数对象
     const searchParams = { [searchKey]: keyWord }; // 下拉框输入的内容 {key: value}
-    let baseCodes = value && (_.isArray(value) ? value : [value]); // 有值：不管是单选还是多选，最后都转成数组的形式
+    let baseCodes = null;
+    if (mode) {
+      baseCodes =
+        value &&
+        (_.isArray(valueKey)
+          ? value.map((item) => JSON.parse(item)['id'])
+          : value);
+    } else {
+      baseCodes =
+        value && (_.isArray(valueKey) ? [JSON.parse(value)?.['id']] : [value]);
+    }
+    // let baseCodes = value && (_.isArray(value) ? value?.['id'] : [value]); // 有值：不管是单选还是多选，最后都转成数组的形式
     // 条件：单选框且第二次搜索的时候 | claerCodes-ture => 清空baseCodes
     if ((!mode && !isFirst.current) || claerCodes) {
       baseCodes = undefined;
@@ -96,6 +107,7 @@ const SearchSelect: FC<ZpSearchSelectProps> = (props) => {
           valueObj = JSON.stringify(getValueObj(valueKey, i));
         }
         return {
+          key: _.isArray(valueKey) ? valueObj : i[valueKey],
           value: _.isArray(valueKey) ? valueObj : i[valueKey],
           label: _.isString(getLabel) ? i[getLabel] : getLabel?.(i),
           allData: i,

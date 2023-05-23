@@ -16,7 +16,7 @@ group:
 
 > 需传入字典对象和对应字典键值
 
-<!-- ```tsx
+```tsx
 import React from 'react';
 import { ConfigProvider, Form } from 'antd';
 import { ZpSelect } from 'zp-design';
@@ -40,7 +40,7 @@ export default () => {
     </ConfigProvider>
   );
 };
-``` -->
+```
 
 ## 传入查询接口使用
 
@@ -107,14 +107,15 @@ const TextApp = () => {
           style={{ width: 400 }}
         >
           <ZpSelect
-            queryFn={(params) =>
+            queryFn={(params) => {
               // searchSelectApi(params).then((res: any) => res || [])
-              fn1APi(params).then((res: any) => res || [])
-            }
+              return fn1APi(params).then((res: any) => res || []);
+            }}
             getLabel={(i: IObject) => `${i.code} ${i.name}`}
             extraPayLoads={{ operatorRights: '2' }}
             disabled={disabled}
-            valueKey={'id'}
+            valueKey={['id', 'name']}
+            mode="multiple"
           />
         </Form.Item>
         <Button
@@ -130,7 +131,14 @@ const TextApp = () => {
         <Button
           type="primary"
           onClick={() => {
-            form.setFieldValue('productCode', 23341301);
+            // form.setFieldValue('productCode', 23341301);  // 单选(id)
+            // form.setFieldValue('productCode', JSON.stringify({id:23341301, name:'监控组合'})); // 单选(id, name)
+            // form.setFieldValue('productCode', [23341301, 23341243]);  //多选(id)
+            // 多选(id, name)
+            form.setFieldValue('productCode', [
+              JSON.stringify({ id: 23341301, name: '监控组合' }),
+              JSON.stringify({ id: 23341243, name: '空名字' }),
+            ]);
           }}
           style={{ marginLeft: 10 }}
         >
