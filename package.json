@@ -6,6 +6,7 @@
 		"start": "dumi dev",
 		"docs:build": "dumi build",
 		"docs:deploy": "gh-pages -d docs-dist",
+		"docs:deploy2": "deploy.sh",
 		"build": "father-build",
 		"public": "node public.mjs",
 		"prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
