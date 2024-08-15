@@ -17,7 +17,7 @@ import { Button } from 'antd';
 
 const { EventEmitter } = ZpUtils;
 
-export default () => {
+const Demo = () => {
   const EventBus = new EventEmitter();
   const [data, setData] = useState('');
 
@@ -37,4 +37,5 @@ export default () => {
     </div>
   );
 };
+export default Demo;
 ```

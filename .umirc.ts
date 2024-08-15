@@ -45,6 +45,7 @@ const LessLoaderConfig = (config: WebpackChain) => {
 };
 
 export default defineConfig({
+  base: '/zp-design',
   title: 'zp-design',
   favicon: '/favicon.png',
   logo: '/favicon.png',

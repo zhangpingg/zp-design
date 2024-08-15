@@ -18,7 +18,8 @@ import { ZpUtils } from 'zp-design';
 
 const { getTextWidth } = ZpUtils;
 
-export default () => {
+const Demo = () => {
   return <div>文字宽度:{getTextWidth('你好你好你好你好你好')}</div>;
 };
+export default Demo;
 ```
