@@ -19,7 +19,7 @@ import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList1 } from './const';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const formList = useMemo(
@@ -94,6 +94,8 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default Demo;
 ```
 
 ## 无模块标题的使用
@@ -107,7 +109,7 @@ import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList2 } from './const';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const formList = useMemo(
@@ -186,6 +188,8 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default Demo;
 ```
 
 ## 有必填项，提示说明的表单
@@ -199,7 +203,7 @@ import { ZpConfigForm } from 'zp-design';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { formList3 } from './const';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const formList = useMemo(
@@ -306,6 +310,8 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default Demo;
 ```
 
 ## 复杂表单
@@ -321,7 +327,7 @@ import { formList4 } from './const';
 import { getFormItemConfig } from '../../api';
 import moment from 'moment';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(false);
 
@@ -437,6 +443,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 普通只读模式
@@ -460,7 +467,7 @@ import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList5 } from './const';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const formList = useMemo(
@@ -479,7 +486,11 @@ export default () => {
       },
       {
         itemName: 'productName2',
-        component: <span>文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4</span>,
+        component: (
+          <span>
+            文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4
+          </span>
+        ),
       },
     ],
     [],
@@ -510,6 +521,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 特殊的只读模式
@@ -533,7 +545,7 @@ import { ZpConfigForm } from 'zp-design';
 import zhCN from 'antd/es/locale/zh_CN';
 import { formList6 } from './const';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const formList = useMemo(
@@ -552,7 +564,11 @@ export default () => {
       },
       {
         itemName: 'productName2',
-        component: <span>文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4</span>,
+        component: (
+          <span>
+            文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4文本4
+          </span>
+        ),
       },
     ],
     [],
@@ -608,6 +624,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 配置接口表单项

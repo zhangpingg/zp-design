@@ -15,7 +15,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpNumber } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   /** 表单提交 */
@@ -40,14 +40,23 @@ export default () => {
         <Form.Item label="默认" name="a">
           <ZpNumber style={{ width: '200px' }} />
         </Form.Item>
-        <Form.Item label="8位整数位数" name="b" rules={[{ required: true, message: '请输入' }]}>
+        <Form.Item
+          label="8位整数位数"
+          name="b"
+          rules={[{ required: true, message: '请输入' }]}
+        >
           <ZpNumber intDigits={8} style={{ width: '200px' }} />
         </Form.Item>
         <Form.Item label="保留2位小数" name="c">
           <ZpNumber precision={2} style={{ width: '200px' }} />
         </Form.Item>
         <Form.Item label="8位整数位数,保留4位小数,自动补0" name="d">
-          <ZpNumber intDigits={8} precision={4} autoFill style={{ width: '200px' }} />
+          <ZpNumber
+            intDigits={8}
+            precision={4}
+            autoFill
+            style={{ width: '200px' }}
+          />
         </Form.Item>
         <Form.Item label="保留2位小数,有单位" name="e">
           <ZpNumber precision={2} unit={'元'} style={{ width: '200px' }} />
@@ -68,6 +77,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件
@@ -77,7 +87,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button, Row, Col } from 'antd';
 import { ZpNumber } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
   const [precisionFlag, setPrecisionFlag] = useState(true);
 
@@ -102,7 +112,11 @@ export default () => {
       <Form form={form}>
         <Row>
           <Col span={12}>
-            <Form.Item label="总额" name="mount" rules={[{ required: true, message: '请输入' }]}>
+            <Form.Item
+              label="总额"
+              name="mount"
+              rules={[{ required: true, message: '请输入' }]}
+            >
               <ZpNumber.Amount />
             </Form.Item>
           </Col>
@@ -123,12 +137,17 @@ export default () => {
       <Button type="primary" onClick={echo} style={{ marginLeft: '10px' }}>
         设置值
       </Button>
-      <Button type="primary" onClick={changePrecision} style={{ marginLeft: '10px' }}>
+      <Button
+        type="primary"
+        onClick={changePrecision}
+        style={{ marginLeft: '10px' }}
+      >
         切换全价精度
       </Button>
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 表单项有多个元素时，自定义拼接
@@ -141,7 +160,7 @@ import { ConfigProvider, Form, Button, Row, Col } from 'antd';
 import { ZpNumber } from 'zp-design';
 import CustomComponentA from './customJoin/CustomComponentA';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const submit = useCallback(() => {
@@ -206,6 +225,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件描述
@@ -215,7 +235,7 @@ import React, { useCallback } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import { businessControlTypeList } from './const';
 
-export default () => {
+const Demo = () => {
   const columns = [
     {
       title: '名称',
@@ -243,6 +263,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## `API`

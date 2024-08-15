@@ -16,13 +16,13 @@ group:
 
 > 需传入字典对象和对应字典键值
 
-<!-- ```tsx
+```tsx
 import React from 'react';
 import { ConfigProvider, Form } from 'antd';
 import { ZpSelect } from 'zp-design';
 import zhCN from 'antd/lib/locale/zh_CN';
 
-export default () => {
+const Demo = () => {
   return (
     <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
       <Form.Item label="字典Select" style={{ width: 400 }}>
@@ -40,7 +40,8 @@ export default () => {
     </ConfigProvider>
   );
 };
-``` -->
+export default Demo;
+```
 
 ## 传入查询接口使用
 
@@ -150,7 +151,7 @@ const TextApp = () => {
   );
 };
 
-export default memo(TextApp);
+export default TextApp;
 ```
 
 ## `API`

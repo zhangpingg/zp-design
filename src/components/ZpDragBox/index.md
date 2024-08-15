@@ -20,8 +20,10 @@ import { classNames } from 'classnames';
 import { ZpContext } from '../ZpConfigProvider';
 import { sortList } from './const';
 
-export default () => {
-  let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(ZpContext);
+const Demo = () => {
+  let { prefix = 'zp', antPrefix = 'zp-ant', antdConfigProvider } = useContext(
+    ZpContext,
+  );
 
   const dragEndCb = useCallback((list) => {
     console.log(list);
@@ -29,7 +31,11 @@ export default () => {
   /** 可拖拽的每一项 item */
   const dragItem = () => (item: DragItemProps, provided: DraggableProvided) => {
     return (
-      <div key={item.dataIndex} ref={provided.innerRef} {...provided.draggableProps}>
+      <div
+        key={item.dataIndex}
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+      >
         <span {...provided.dragHandleProps}>{item.title}</span>
       </div>
     );
@@ -47,6 +53,8 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default Demo;
 ```
 
 ## 其他内容

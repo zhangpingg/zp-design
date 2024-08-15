@@ -15,10 +15,11 @@ group:
 ```tsx
 import React from 'react';
 import { ZpDragList } from 'zp-design';
-
-export default () => {
+const Demo = () => {
   return <ZpDragList />;
 };
+
+export default Demo;
 ```
 
 ## 其他内容

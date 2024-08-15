@@ -32,7 +32,7 @@ import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 import { Input, Select, Form, Button } from 'antd';
 
 const { Option } = Select;
-export default () => {
+const Demo = () => {
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
@@ -94,7 +94,11 @@ export default () => {
     {
       label: '联系电话',
       content: (
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} placeholder="请输入" />
+        <Input
+          addonBefore={prefixSelector}
+          style={{ width: '100%' }}
+          placeholder="请输入"
+        />
       ),
       name: 'phone',
     },
@@ -110,7 +114,8 @@ export default () => {
       rules: [
         {
           required: true,
-          message: '测试label为长文本长文本长文本测试label为长文本长文本长文本测试label',
+          message:
+            '测试label为长文本长文本长文本测试label为长文本长文本长文本测试label',
         },
       ],
     },
@@ -127,6 +132,7 @@ export default () => {
     </div>
   );
 };
+export default Demo;
 ```
 
 > 也可以设置属性`showExpand`是否开启收起展开功能
@@ -136,7 +142,7 @@ import React from 'react';
 import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 import { Input, Select, InputNumber, Form, Button } from 'antd';
 
-export default () => {
+const Demo = () => {
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
@@ -174,7 +180,11 @@ export default () => {
     {
       label: '联系电话',
       content: (
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} placeholder="请输入" />
+        <Input
+          addonBefore={prefixSelector}
+          style={{ width: '100%' }}
+          placeholder="请输入"
+        />
       ),
       name: 'phone',
     },
@@ -200,6 +210,7 @@ export default () => {
     </div>
   );
 };
+export default Demo;
 ```
 
 ## 简单查询功能
@@ -213,7 +224,7 @@ import { Input, Dropdown, Form, Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 const { SimpleSearchForm } = ZpSearchForm;
 
-export default () => {
+const Demo = () => {
   const menu = (
     <Menu
       items={[
@@ -249,8 +260,11 @@ export default () => {
     </>
   );
 
-  return <SimpleSearchForm title="测试简单查询功能" lastElement={lastElement} />;
+  return (
+    <SimpleSearchForm title="测试简单查询功能" lastElement={lastElement} />
+  );
 };
+export default Demo;
 ```
 
 ## 简单查询和筛选的混合合使用
@@ -264,7 +278,7 @@ import { Input, Dropdown, Form, Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 const { SimpleSearchForm } = ZpSearchForm;
 
-export default () => {
+const Demo = () => {
   const menu = (
     <Menu
       items={[
@@ -353,6 +367,7 @@ export default () => {
     />
   );
 };
+export default Demo;
 ```
 
 ## 使用后端配置
@@ -367,7 +382,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { ZpSearchForm, ZpEllipsis } from 'zp-design';
 const { SimpleSearchForm } = ZpSearchForm;
 
-export default () => {
+const Demo = () => {
   const formList = [
     {
       content: <Input placeholder="请输入" />,
@@ -391,7 +406,9 @@ export default () => {
     {
       content: <Input placeholder="请输入" />,
       name: 'testLongText',
-      labelFormat: (text) => <ZpEllipsis style={{ width: '100%' }} text={text} />,
+      labelFormat: (text) => (
+        <ZpEllipsis style={{ width: '100%' }} text={text} />
+      ),
     },
   ];
 
@@ -460,6 +477,7 @@ export default () => {
     />
   );
 };
+export default Demo;
 ```
 
 ## API

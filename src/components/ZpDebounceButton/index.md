@@ -19,7 +19,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider } from 'antd';
 import { ZpDebounceButton } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [num, setNum] = useState(0);
 
   /** 防抖按钮点击事件 */
@@ -41,6 +41,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 模拟调用后台接口
