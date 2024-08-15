@@ -22,10 +22,10 @@ import { ConfigProvider, Form } from 'antd';
 import { ZpSelect } from 'zp-design';
 import zhCN from 'antd/lib/locale/zh_CN';
 
-export default () => {
+const Demo = () => {
   return (
     <ConfigProvider prefixCls="zp-ant" locale={zhCN}>
-      <Form.Item label="字典Select" style={{ width: 400 }}>
+      <Form.Item label="字典 Select" style={{ width: 400 }}>
         <ZpSelect
           dicts={{
             APPROVE_RESULT: {
@@ -40,6 +40,8 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default Demo;
 ```
 
 ## 传入查询接口使用
@@ -158,7 +160,7 @@ const TextApp = () => {
   );
 };
 
-export default memo(TextApp);
+export default TextApp;
 ```
 
 ## `API`

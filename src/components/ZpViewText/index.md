@@ -18,11 +18,12 @@ import { ConfigProvider } from 'antd';
 import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
-export default () => (
+const Demo = () => (
   <ConfigProvider prefixCls="zp-ant">
     <ZpViewText text={text} />
   </ConfigProvider>
 );
+export default Demo;
 ```
 
 ## 默认省略
@@ -35,11 +36,12 @@ import { ConfigProvider } from 'antd';
 import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
-export default () => (
+const Demo = () => (
   <ConfigProvider prefixCls="zp-ant">
     <ZpViewText text={text} isEllipsis />
   </ConfigProvider>
 );
+export default Demo;
 ```
 
 ## 自定义省略时
@@ -52,7 +54,7 @@ import { ConfigProvider } from 'antd';
 import { ZpViewText } from 'zp-design';
 import { text } from './const';
 
-export default () => (
+const Demo = () => (
   <ConfigProvider prefixCls="zp-ant">
     一行省略
     <hr />
@@ -60,9 +62,15 @@ export default () => (
     <br />
     三行省略
     <hr />
-    <ZpViewText text={text} isEllipsis rowEllipsis={3} style={{ lineHeight: '30px' }} />
+    <ZpViewText
+      text={text}
+      isEllipsis
+      rowEllipsis={3}
+      style={{ lineHeight: '30px' }}
+    />
   </ConfigProvider>
 );
+export default Demo;
 ```
 
 ## `API`

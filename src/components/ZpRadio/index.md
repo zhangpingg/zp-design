@@ -15,7 +15,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpRadio } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
   /** 表单提交 */
   const submit = useCallback(() => {
@@ -33,7 +33,11 @@ export default () => {
   return (
     <ConfigProvider prefixCls="zp-ant">
       <Form form={form}>
-        <Form.Item label="审批状态" name="status" rules={[{ required: true, message: '请选择' }]}>
+        <Form.Item
+          label="审批状态"
+          name="status"
+          rules={[{ required: true, message: '请选择' }]}
+        >
           <ZpRadio.DictRadio
             dicts={{
               APPROVE_RESULT: {
@@ -56,6 +60,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 自定义单选框数据
@@ -65,7 +70,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpRadio } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const options = useMemo(() => {
@@ -91,7 +96,11 @@ export default () => {
   return (
     <ConfigProvider prefixCls="zp-ant">
       <Form form={form}>
-        <Form.Item label="旅游地点" name="address" rules={[{ required: true, message: '请选择' }]}>
+        <Form.Item
+          label="旅游地点"
+          name="address"
+          rules={[{ required: true, message: '请选择' }]}
+        >
           <ZpRadio options={options} />
         </Form.Item>
       </Form>
@@ -104,6 +113,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件
@@ -113,7 +123,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpRadio } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   /** 表单提交 */
@@ -157,6 +167,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件类型
@@ -166,7 +177,7 @@ import React, { useCallback } from 'react';
 import { ConfigProvider, Button } from 'antd';
 import { businessMap } from './const';
 
-export default () => {
+const Demo = () => {
   const printList = useCallback(() => {
     console.log('业务组件类型：', businessMap);
   }, []);
@@ -180,6 +191,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## `API`

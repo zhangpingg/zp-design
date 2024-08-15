@@ -22,11 +22,8 @@ $ npm adduser
 $ npm publsh
 ```
 
-待整理
+版本
 
 ```js
-Node 20.11.1 安装依赖
-Node 16 启动项目
-
-依赖：npm update umi @umijs/core @umijs/preset-react
+Node 16
 ```

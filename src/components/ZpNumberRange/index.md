@@ -17,7 +17,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpNumberRange } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   /** 单位的下拉选项 */
@@ -70,6 +70,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 复杂使用
@@ -81,7 +82,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpNumberRange } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   /** 单位的下拉选项 */
@@ -154,6 +155,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件
@@ -163,7 +165,7 @@ import React, { useState, useCallback } from 'react';
 import { ConfigProvider, Form, Button } from 'antd';
 import { ZpNumberRange } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   /** 表单提交 */
@@ -212,6 +214,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## 业务组件类型
@@ -221,7 +224,7 @@ import React, { useCallback } from 'react';
 import { ConfigProvider, Table } from 'antd';
 import { businessControlTypeList } from './const';
 
-export default () => {
+const Demo = () => {
   const columns = [
     {
       title: '名称',
@@ -249,6 +252,7 @@ export default () => {
     </ConfigProvider>
   );
 };
+export default Demo;
 ```
 
 ## `API`

@@ -17,7 +17,7 @@ group:
 import React from 'react';
 import { ZpEllipsis } from 'zp-design';
 
-export default () => {
+const Demo = () => {
   const testText =
     '测试超长超出文本测试超长超出文本测试超长超出文本测试超长超出文本测试超长超出文本测试超长超出文本测试超长超出文本测试超长超出文本';
   return (
@@ -28,11 +28,17 @@ export default () => {
       <br />
       <ZpEllipsis text={testText} /> <br />
       <div style={{ width: '300px' }}>
-        <ZpEllipsis text={testText} ellipsisRow={2} color="red" placement="bottom" />
+        <ZpEllipsis
+          text={testText}
+          ellipsisRow={2}
+          color="red"
+          placement="bottom"
+        />
       </div>
     </div>
   );
 };
+export default Demo;
 ```
 
 ## `API`

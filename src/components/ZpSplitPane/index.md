@@ -14,14 +14,17 @@ group:
 import React from 'react';
 import { ZpSplitPane } from 'zp-design';
 
-export default () => (
-  <div style={{ height: '200px' }}>
-    <ZpSplitPane>
-      <div>第一个子元素</div>
-      <div>第二个子元素</div>
-    </ZpSplitPane>
-  </div>
-);
+const Demo = () => {
+  return (
+    <div style={{ height: '200px' }}>
+      <ZpSplitPane>
+        <div>第一个子元素</div>
+        <div>第二个子元素</div>
+      </ZpSplitPane>
+    </div>
+  );
+};
+export default Demo;
 ```
 
 ## 设置最大最小宽度
@@ -32,7 +35,7 @@ export default () => (
 import React from 'react';
 import { ZpSplitPane } from 'zp-design';
 
-export default () => (
+const Demo = () => (
   <div style={{ height: '200px' }}>
     <ZpSplitPane minSize={100} maxSize={300} defaultSize={110}>
       <div>第一个子元素：100~300</div>
@@ -40,6 +43,8 @@ export default () => (
     </ZpSplitPane>
   </div>
 );
+
+export default Demo;
 ```
 
 ## 修改拖拽方向
@@ -50,7 +55,7 @@ export default () => (
 import React from 'react';
 import { ZpSplitPane } from 'zp-design';
 
-export default () => (
+const Demo = () => (
   <div style={{ height: '300px' }}>
     <ZpSplitPane minSize={100} maxSize={400} defaultSize={120} split="vertical">
       <div>第一个子元素：100~400</div>
@@ -58,6 +63,7 @@ export default () => (
     </ZpSplitPane>
   </div>
 );
+export default Demo;
 ```
 
 ## 设置拖拽线的大小和颜色
@@ -66,7 +72,7 @@ export default () => (
 import React from 'react';
 import { ZpSplitPane } from 'zp-design';
 
-export default () => (
+const Demo = () => (
   <div style={{ height: '200px' }}>
     <ZpSplitPane
       minSize={100}
@@ -82,6 +88,7 @@ export default () => (
     </ZpSplitPane>
   </div>
 );
+export default Demo;
 ```
 
 ## `API`

@@ -13,7 +13,6 @@ const getTextWidth = (
   const context = canvas.getContext('2d');
   const currentFontFamily =
     fontFamily || getComputedStyle(document.body).fontFamily;
-  console.log('context', context);
   if (!context) {
     return text.length * (Number(font.replace('px', '')) || 12);
   }
